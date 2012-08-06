@@ -85,11 +85,14 @@ body{
 #banner img {
   padding-top: 5px;
   float: left;
+<<<<<<< HEAD
   margin-left: 30px;
 }
 
 #banner search{
 	float:right;
+=======
+>>>>>>> d81c5d7fa612844e2053e8f2caa6f2c672b141c3
 }
 
 #columns {
