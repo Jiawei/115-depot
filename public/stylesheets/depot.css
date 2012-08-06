@@ -85,6 +85,11 @@ body{
 #banner img {
   padding-top: 5px;
   float: left;
+  margin-left: 30px;
+}
+
+#banner search{
+	float:right;
 }
 
 #columns {
