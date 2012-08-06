@@ -168,10 +168,12 @@ body{
 
 #store .entry .price_line .btn_buy{
   border: none;
-  height: 30px;
-  padding-left: 27px;
+  height: 20px;
+  padding-left: 20px;
   padding-bottom: 7px;
-  background: url(../images/btn_buy.gif) no-repeat;
+  background: url(../images/btn_buy.jpg) no-repeat;
+  background-color: #EEFFEE;
+  border-radius: 20px;
 }
 
 /* START:inline */
