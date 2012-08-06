@@ -14,6 +14,8 @@ class SessionsController < ApplicationController
 	  if Cart.find_by_user_id(user.id) == nil
 	    Cart.create(:user_id => user.id);
 	  end
+	  
+	  session[:cart_id] = Cart.find_by_user_id(user.id).id
   end
 
   def destroy
