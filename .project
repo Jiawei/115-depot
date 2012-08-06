@@ -5,14 +5,11 @@
 	<projects>
 	</projects>
 	<buildSpec>
-<<<<<<< HEAD
 		<buildCommand>
 			<name>com.aptana.ide.core.unifiedBuilder</name>
 			<arguments>
 			</arguments>
 		</buildCommand>
-=======
->>>>>>> d81c5d7fa612844e2053e8f2caa6f2c672b141c3
 	</buildSpec>
 	<natures>
 		<nature>com.aptana.projects.webnature</nature>
