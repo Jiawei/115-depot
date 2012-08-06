@@ -5,8 +5,11 @@ class ApplicationController < ActionController::Base
 
   private 
   def current_cart
+<<<<<<< HEAD
     puts session[:user_id]
     puts session[:user_id].class
+=======
+>>>>>>> d81c5d7fa612844e2053e8f2caa6f2c672b141c3
   	cart = Cart.find_by_user_id(User.find(session[:user_id]))
   	
     rescue ActiveRecord::RecordNotFound

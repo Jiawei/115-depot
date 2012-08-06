@@ -5,6 +5,10 @@ class SessionsController < ApplicationController
 
   def create
 	  if user = User.authenticate(params[:name], params[:password])
+<<<<<<< HEAD
+=======
+	   
+>>>>>>> d81c5d7fa612844e2053e8f2caa6f2c672b141c3
 		  session[:user_id] = user.id
 		  redirect_to admin_url
 		  if Cart.find_by_user_id(user.id) == nil
