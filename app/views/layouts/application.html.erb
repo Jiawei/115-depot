@@ -25,7 +25,7 @@
     <!--search-->
     <%= form_tag searches_path, :class => 'search', :method => 'get' do %>
     <%= text_field_tag "q", params[:q] %>
-    <%= submit_tag "Search", :class => 'seaBn'%>
+    <%= submit_tag "Search" %>
     <% end %>
   </div>
 <div id="columns">
@@ -41,11 +41,10 @@
 			<a href="http://www.../faq"><%= t('.questions') %></a><br />
 			<a href="http://www.../news"><%= t('.news') %></a><br />
 			<a href="http://www.../contact"><%= t('.contact') %></a><br />
-			
-			<% if session[:user_id] != nil %>
-				<%= link_to 'Cart', {:controller => "carts", :action => "index" } %><br />
-			<% else %>
-				<%= link_to 'Login', {:controller => "sessions", :action => "new"} %><br />
+			<%= link_to 'Help', {:controller => "help", :action => "index" } %><br />
+			<%= link_to 'Login', {:controller => "sessions", :action => "new"} %><br />
+
+			<% if session[:user_id] == nil %>
 				<%= link_to 'Register', {:controller => "users", :action => "new" } %><br />
 			<% end %>
 
@@ -61,14 +60,10 @@
 			<% if session[:user_id] && User.find(session[:user_id]).usertype == "seller" %>
 				<%= link_to 'Products', products_path %><br />
 			<% end %>
-			
-			<!--Help-->
-			<%= link_to 'Help', {:controller => "help", :action => "index" } %><br />
-			
+
 			<% if session[:user_id] %>
 				<%= button_to 'logout', logout_path, :method => :delete %>
 			<% end %>
-
 
 		</div>
 		<div id="main">

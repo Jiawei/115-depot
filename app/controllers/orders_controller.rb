@@ -53,13 +53,13 @@ class OrdersController < ApplicationController
 
     respond_to do |format|
       if @order.save
-        Cart.destroy(session[:cart_id])
-
+       Notifier.order_received(@order).deliver 
+       Cart.destroy(session[:cart_id])
         session[:cart_id] = nil
-
+        
         cart = Cart.create(:user_id => session[:user_id])
         session[:cart_id] = cart.id
-        Notifier.order_received(@order).deliver
+        puts cart.id
         format.html { redirect_to(store_url, :notice => I18n.t('.thanks')) }
         format.xml  { render :xml => @order, :status => :created, :location => @order }
       else

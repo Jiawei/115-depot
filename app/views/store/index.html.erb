@@ -14,7 +14,7 @@
     <div class="price_line" >
       <span class="price"><%= number_to_currency(product.price, :separator => '.', :delimiter => ',') %></span>
       <%= button_to t('.add_html'), line_items_path(:product_id => product),
-         :class => "btn_buy" %>
+        :remote => true, :class => "btn_buy" %>
     </div>
   </div>
 <% end %>

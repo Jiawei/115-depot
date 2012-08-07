@@ -5,7 +5,6 @@ class ApplicationController < ActionController::Base
 
   private 
   def current_cart
-
     puts session[:user_id]
     puts session[:user_id].class
 
