@@ -54,7 +54,6 @@ class OrdersController < ApplicationController
     respond_to do |format|
       if @order.save
         Cart.destroy(session[:cart_id])
-
         session[:cart_id] = nil
 
         cart = Cart.create(:user_id => session[:user_id])

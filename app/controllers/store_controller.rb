@@ -7,6 +7,7 @@ class StoreController < ApplicationController
 	  	@products = Product.all
 	  	@cart = current_cart
 	  end
+		
 		if session[:user_id] == nil
 			@name = "Please login"
 		else
