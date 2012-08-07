@@ -1,24 +1,24 @@
 /* Global styles */
 
 body{
-	width: 1100px;
-	margin: auto;	
+  width: 980px;
+  margin: auto;	
 }
 
 #store #notice {
-        color: #000;
-        border: 2px solid red;
-        padding: 1em;
-        margin-bottom: 2em;
-        background-color: #f0f0f0;
-        font: bold smaller sans-serif;
+  color: #000;
+  border: 2px solid red;
+  padding: 1em;
+  margin-bottom: 2em;
+  background-color: #f0f0f0;
+  font: bold smaller sans-serif;
 }
 
 
 #store h1 {
-        font:  250% sans-serif;
-        color: #226;
-        border-bottom: 3px dotted #77d;
+  font:  200% sans-serif;
+  color: #226;
+  border-bottom: 3px dotted #77d;
 }
 
 /* Styles for products/index */
@@ -125,7 +125,7 @@ body{
   margin-top: 1em;
   border-bottom: 1px dotted #77d;
   height: 200px;
-  width: 853px;
+  width: 734px;
 }
 
 #store  .title {
@@ -168,17 +168,20 @@ body{
 #store .entry  .price {
   color: #44a;
   font-weight: bold;
+  font-size: 13pt;
   margin-right: 2em;
 }
 
 #store .entry .price_line .btn_buy{
   border: none;
-  height: 20px;
-  padding-left: 20px;
-  padding-bottom: 7px;
+  height: 25px;
+  padding-left: 25px;
+  padding-bottom: 3px;
+  font-family: verdana,helvetica,arial,sans-serif;
   background: url(../images/btn_buy.jpg) no-repeat;
   background-color: #EEFFEE;
   border-radius: 20px;
+  font-size: 11pt;
 }
 
 /* START:inline */

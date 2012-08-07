@@ -26,7 +26,7 @@ class Product < ActiveRecord::Base
 	def self.search(query)
 	  if query
 	    find(:all, :conditions => ['title LIKE ?',"%#{query}%"])
-      else
+    else
 	    find(:all)
 	  end
 	end
