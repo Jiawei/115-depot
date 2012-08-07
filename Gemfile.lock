@@ -73,6 +73,6 @@ PLATFORMS
 
 DEPENDENCIES
   mysql
-  sqlite3
+  pg
   rails (= 3.0.7)
   will_paginate (>= 3.0.pre)
