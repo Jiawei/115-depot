@@ -80,16 +80,13 @@ body{
   font: small-caps 40px/40px "Times New Roman", serif;
   color: #282;
   text-align: center;
+  height:60px;
 }
 
 #banner img {
   padding-top: 5px;
   float: left;
   margin-left: 30px;
-}
-
-#banner search{
-	float:right;
 }
 
 #columns {
@@ -262,14 +259,24 @@ body{
 .locale {
   float: right;
   margin: -0.25em 0.1em;
+
 }
 /* END:i18n */
 
 /* Search */
 .search {
     float: right;
-    padding-top: 0em;
-    padding-right: 10em;
+   /* padding-top: 0em;
+    padding-right: 10em; */
+   margin: 1.15em 0.1em;
+   clear:right;
 }
+
+.seaBn{
+	 background-color: #228822;
+     border-radius: 20px;
+     color: #BBFFBB;
+}
+
 
 

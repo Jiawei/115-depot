@@ -25,7 +25,7 @@
     <!--search-->
     <%= form_tag searches_path, :class => 'search', :method => 'get' do %>
     <%= text_field_tag "q", params[:q] %>
-    <%= submit_tag "Search" %>
+    <%= submit_tag "Search" , :class => 'seaBn'%>
     <% end %>
   </div>
 <div id="columns">
