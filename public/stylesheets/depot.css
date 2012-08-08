@@ -113,6 +113,11 @@ body{
   color: #bfb;
   font-size: small;
 }
+
+#side a:hover{
+	color: #fff;
+	background-color: #3A8B8E;
+}
 /* END:mainlayout */
 
 /* An entry in the store catalog */
