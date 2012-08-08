@@ -1,0 +1,25 @@
+<%= form_for(@category_node) do |f| %>
+  <% if @category_node.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@category_node.errors.count, "error") %> prohibited this category_node from being saved:</h2>
+
+      <ul>
+      <% @category_node.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :parent %><br />
+    <%= f.text_field :parent %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
