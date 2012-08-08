@@ -1,8 +1,12 @@
 // Place your application-specific JavaScript functions and classes here
 // This file is automatically included by javascript_include_tag :defaults
 
+
 function addToCart(user){
 	if( typeof(user) == "undefined" ){
-		alert("Login first, please.");
+		document.getElementById("login_suggest").className = "suggest play";
+		var url = window.location.href;
+		var language = url.substr(url.lastIndexOf('/')+1, 2);
+		setTimeout(function(){window.location.href = "login?locale="+language+"&backurl="+window.location.href;},3000);
 	}
 }

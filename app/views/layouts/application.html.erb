@@ -70,5 +70,13 @@
 			<%= yield %>
 		</div>
 	</div>
+	
+	<div class = "suggest display" id = "login_suggest">
+		<div>
+			Login first, please.
+		</div>
+		<br />
+		<%= link_to 'Login', {:controller => "sessions", :action => "new"} %>
+	</div>
 </body>
 </html>
