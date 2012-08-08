@@ -45,7 +45,13 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save 
-        format.html { redirect_to(users_url, :notice => "User #{@user.name} was successfully created.") }
+        session[:user_id] = @user.id
+        if Cart.find_by_user_id(@user.id) == nil
+          Cart.create(:user_id => @user.id);
+        end
+        session[:cart_id] = Cart.find_by_user_id(@user.id).id
+        
+        format.html { redirect_to admin_url }
         format.xml  { render :xml => @user, :status => :created, :location => @user }
       else
         format.html { render :action => "new" }

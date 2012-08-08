@@ -12,6 +12,7 @@ class SessionsController < ApplicationController
       end
     
       session[:cart_id] = Cart.find_by_user_id(user.id).id
+
 	  else 
 		  redirect_to login_url, :alert => "Invalid user/password combination"
 	  end
