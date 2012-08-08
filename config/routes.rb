@@ -1,4 +1,8 @@
 Depot::Application.routes.draw do
+  resources :category_nodes
+
+  resources :categories
+
   resources :searches
   get "help/index"
   get "help/register"
