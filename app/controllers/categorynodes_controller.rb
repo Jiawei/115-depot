@@ -1,4 +1,4 @@
-class CategoryNodesController < ApplicationController
+class CategorynodesController < ApplicationController
   # GET /category_nodes
   # GET /category_nodes.xml
   def index

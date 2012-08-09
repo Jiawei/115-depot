@@ -1,12 +1,12 @@
-<div id="store_side">
+<div id="side">
   <!--Category-->
   <h4>Category</h4>
   <div class="cat">
     <% @categories.each do |category| %>
       <p>[<%= category.title %>]</p>
-      <% @category_nodes.each do |category_node| %>
-        <% if category_node.parent == category.title %>
-          <a href> <%= category_node.title %> </a> <br />
+      <% @categorynodes.each do |categorynode| %>
+        <% if categorynode.parent == category.title %>
+          <a href> <%= categorynode.title %> </a> <br />
         <% end %>
       <% end %>
     <% end %>

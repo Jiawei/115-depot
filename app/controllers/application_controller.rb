@@ -38,10 +38,4 @@ class ApplicationController < ActionController::Base
   def default_url_options
     { :locale => I18n.locale }
   end
-
-  def cate
-    category_nodes = Category_node.all
-    categories = Category.all
-  end
-
 end
