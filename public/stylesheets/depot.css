@@ -393,7 +393,8 @@ body {
 	 text-decoration:none;
 	 text-align:center;
 	 color:#fff;
-	 font-size:13px;
+	 font-size:14px;
+	 font-weight:bold;
 	 line-height:25px;
 }
 #menu ul li.selected a{
@@ -405,7 +406,8 @@ body {
 	 text-decoration:none;
 	 text-align:center;
 	 color:#f7a849;
-	 font-size:13px;
+	 font-size:14px;
+	 font-weight:bold;
 	 line-height:25px;
 }
 #menu ul li a:hover{
