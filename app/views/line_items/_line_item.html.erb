@@ -1,11 +1,20 @@
-<%if line_item == @current_item %>
+<% if line_item == @current_item %>
 <div id="current_item" class="line_item">
-<% else %>
-<div class="line_item">
-<% end %>
-	<span class="line_item_title"><%= image_tag(line_item.product.image_url) %><%= line_item.product.title %></span>
-	<span class="line_item_number"><%= line_item.product.price %></span>
-	<span class="line_item_number"><%= line_item.quantity %></span>
-	<span class="line_item_number"><%= number_to_currency(line_item.total_price) %></span>
+<% else 
+     if $count % 2 == 0 
+%>
+<div class="line_item odd">
+<%   else %>
+<div class="line_item even">
+<%   end
+     
+     $count += 1
+   end 
+%>
+	<div class="line_item_img"><%= image_tag(line_item.product.image_url) %></div>
+	<div class="line_item_title"><%= line_item.product.title %></div>
+	<div class="line_item_number"><%= line_item.product.price %></div>
+	<div class="line_item_number"><%= line_item.quantity %></div>
+	<div class="line_item_number"><%= number_to_currency(line_item.total_price) %></div>
 </div>
 	

@@ -1,13 +1,14 @@
 <div class="cart_title">Your Cart</div>
 <div class="cart_body">
 	
-	<div class="line_item" id="table_title">
-	  <span class="line_item_title">title</span>
-	  <span class="line_item_number">price</span>
-	  <span class="line_item_number">quantity</span>
-	  <span class="line_item_number">subtotal</span>
+	<div id="table_title">
+	  <div class="line_item_title">title</div>
+	  <div class="line_item_number">price</div>
+	  <div class="line_item_number">quantity</div>
+	  <div class="line_item_number">subtotal</div>
     </div>
     
+    <% $count = 0 %>
 	<%= render @cart.line_items %>
 	
 	<div class="total_line">

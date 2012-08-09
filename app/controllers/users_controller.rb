@@ -51,7 +51,7 @@ class UsersController < ApplicationController
         end
         session[:cart_id] = Cart.find_by_user_id(@user.id).id
         
-        format.html { redirect_to admin_url }
+        format.html { redirect_to store_url }
         format.xml  { render :xml => @user, :status => :created, :location => @user }
       else
         format.html { render :action => "new" }

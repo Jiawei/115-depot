@@ -248,36 +248,62 @@ body {
   font-size: 12pt;	
 }
 
-#store .line_item {
-  
-}
-
 #store #table_title {
   background-color: #BBFFBB;
   height: 30px;
+  width: 733px;
   padding-top: 12px;
   font-size: 14pt;	
 }
 
-#store .line_item .line_item_title {
+#store #table_title .line_item_title {
   width: 350px;
-  text-align: left;
-  display: inline-block;
+  text-align: center;
+  float: left;
 }
 
-#store #table_title .line_item_title {
+#store #table_title .line_item_number {
+  width: 110px;
   text-align: center;
+  float: left;
 }
-#store .line_item .line_item_title img {
-  max-height: 80px;
-  max-width: 80px;
-  margin-right: 5px;	
+
+#store .odd {
+  background-color: #E0F8F8;
+}
+
+#store .even {
+  background-color: #EEFFEE;
+}
+
+#store .line_item {
+  float: left;
+  width: 733px;
+  height: 90px;
+  margin-top: 20px;
+}
+
+#store .line_item .line_item_img {
+  float: left;
+  padding: 10px;
+}
+
+#store .line_item .line_item_img img {
+  max-height: 70px;
+  max-width: 70px;
+}
+
+#store .line_item .line_item_title {
+  float: left;
+  width: 275px;
+  padding-top: 35px;
 }
 
 #store .line_item .line_item_number {
-  width: 100px;
+  float: left;
+  width: 110px;
   text-align: center;
-  display: inline-block;
+  padding-top: 35px;
 }
 
 #store .item_price, #store .total_line {
