@@ -1,0 +1,67 @@
+/* Category */
+.side{
+  width: 150px;
+  float: left;
+}
+
+.side h4{
+  font-size: 15px;
+  margin: 0px;
+  color: gray;
+  font-weight: bold;
+  margin-bottom: 5px;
+  border-bottom: 3px dotted #7777DD;
+  margin-top: 5px; 
+  height: 18px; 
+  width: 80px;
+}
+
+.cate {
+  float: left;
+  padding-bottom: 10px;
+  width: 150px;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  background: url(../images/bottom.gif) no-repeat  right bottom;
+  color: #fff;
+}
+
+.cate div {
+  background: url(../images/title.gif) repeat-x;
+  overflow: hidden;
+}
+.cate div:first-child {
+  background: url(../images/toptitle.gif) no-repeat;
+}
+
+.collapsed {
+  height: 25px;
+}
+
+.cate div span {
+  display: block;
+  padding: 5px 25px;
+  font-weight: bold;
+  color: white;
+  background: url(../images/expanded.gif) no-repeat 10px center;
+  cursor: default;
+  border-bottom: 1px solid #ddd;
+}
+
+.cate div.collapsed span {
+  background-image: url(collapsed.gif);
+}
+
+.cate div a {
+  padding: 5px 10px;
+  background: #eee;
+  display: block;
+  border-bottom: 1px solid #ddd;
+  color: #066;
+}
+
+.cate div a:hover {
+  background : #066 url(linkarrow.gif) no-repeat right center;
+  color: #fff;
+  text-decoration: none;
+}

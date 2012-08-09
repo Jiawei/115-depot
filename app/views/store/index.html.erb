@@ -1,6 +1,6 @@
-<div id="side">
+<!--<div id="side">
   <!--Category-->
-  <h4>Category</h4>
+ <!-- <h4>Category</h4>
   <div class="cat">
     <% @categories.each do |category| %>
       <p>[<%= category.title %>]</p>
@@ -11,7 +11,28 @@
       <% end %>
     <% end %>
   </div>
-</div>
+</div>-->
+
+
+
+  <div class="side">
+    <h4>Category</h4>
+    <div id="my_menu" class="cate">
+      <div class="collapsed">
+        <% @categories.each do |category| %>
+        <div>
+          <span> <%= category.title %> </span>
+          <% @categorynodes.each do |categorynode| %>
+            <% if categorynode.parent == category.title %>
+              <a href=""><%= categorynode.title %></a>
+            <% end %>
+          <% end %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
 
 <% if notice %>
 <p id="notice" ><%= notice %></p>

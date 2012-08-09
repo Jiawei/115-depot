@@ -91,7 +91,7 @@ body {
 }
 
 /* START:mainlayout */
-/* Styles for main page */
+
 
 #banner {
   background: #9c9;
@@ -114,46 +114,25 @@ body {
   background: #141;
 }
 
+/* Styles for main page */
 #main {
-  margin-left: 17em;
-  padding-top: 4ex;
-  padding-left: 2em;
   background: white;
   min-height: 500px;
 }
 
-#side {
-  float: left;
-  padding-top: 1em;
-  padding-left: 1em;
-  padding-bottom: 1em;
-  width: 16em;
-  background: #141;
+#main h3{
+  margin-left: 160px;
+  margin-top: 0px; 
+  padding-top: 15px;
 }
 
-#side a {
-  color: #bfb;
-  font-size: small;
-}
-
-#side a:hover{
-	color: #fff;
-	background-color: #3A8B8E;
+#main h1{
+  margin-left: 160px;
 }
 
 .cat{
   font-size: 5px;
   color: #8600FF;
-}
-
-#store_side h4{
-  font-size: 15px;
-  margin: 0px;
-  color: #F1E1FF;
-  font-weight: bold;
-  margin-bottom: 5px;
-  border-bottom: 3px dotted #7777DD;
-  width: 100px;
 }
 
 .cat p{
@@ -166,7 +145,9 @@ body {
 
 /* An entry in the store catalog */
 
+
 #store  .entry {
+  margin-left: 160px;
   overflow: auto;
   margin-top: 1em;
   border-bottom: 1px dotted #77d;
