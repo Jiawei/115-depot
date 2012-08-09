@@ -39,6 +39,7 @@ Product.create(:title => 'Rails Test Prescriptions',
   :price => 43.75)
 
 Category.create(:title => 'Literature')
+
 Category_node.create(:title => 'Novel', :parent => 'Literature')
 Category_node.create(:title => 'Essay', :parent => 'Literature')
 Category_node.create(:title => 'Prose', :parent => 'Literature')

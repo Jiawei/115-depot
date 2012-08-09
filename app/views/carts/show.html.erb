@@ -1,12 +1,22 @@
 <div class="cart_title">Your Cart</div>
-<table>
+<div class="cart_body">
+	
+	<div class="line_item" id="table_title">
+	  <span class="line_item_title">title</span>
+	  <span class="line_item_number">price</span>
+	  <span class="line_item_number">quantity</span>
+	  <span class="line_item_number">subtotal</span>
+    </div>
+    
 	<%= render @cart.line_items %>
-	<tr class="total_line">
-		<td colspan="2">Total</td>
-		<td class="total_cell"><%= number_to_currency(@cart.total_price) %> </td>
-	</tr>
-</table>
+	
+	<div class="total_line">
+		<span colspan="2">Total</span>
+		<span class="total_cell"><%= number_to_currency(@cart.total_price) %> </span>
+	</div>
+</div>
 
+<%= button_to 'Checkout', new_order_path, :method => :get %>
 <%= button_to 'Empty cart', @cart, :method => :delete,
 	:confirm => 'Are you sure?' %>
 

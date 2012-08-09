@@ -12,13 +12,10 @@ class CategoriesController < ApplicationController
 
   # GET /categories/1
   # GET /categories/1.xml
+  # show category
   def show
-    @category = Category.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @category }
-    end
+    @category_nodes = Category_node.all
+    @categories = Category.all
   end
 
   # GET /categories/new
