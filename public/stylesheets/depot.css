@@ -101,7 +101,7 @@ body {
   font: small-caps 40px/40px "Times New Roman", serif;
   color: #282;
   text-align: center;
-  height:60px;
+  height:80px;
 }
 
 #banner img {
@@ -346,6 +346,7 @@ body {
   float: right;
   margin: 10px;
   margin-top: 0;
+  clear:right;
 }
 /* END:i18n */
 
@@ -355,7 +356,7 @@ body {
    /* padding-top: 0em;
     padding-right: 10em; */
    margin-right: 10px;
-   margin-top: 8px;
+   margin-top: 35px;
    clear:right;
 }
 
@@ -364,3 +365,50 @@ body {
      border-radius: 20px;
      color: #BBFFBB;
 }
+
+#menu{
+width:628px;
+height:30px;
+padding:55px 0 0 0px;
+}
+#menu ul{
+display:block;
+list-style:none;
+padding:9px 0 0 10px;
+margin:0px;
+}
+#menu ul li{
+display:inline;
+padding:0px;
+margin:0px;
+height:20px;
+}
+#menu ul li a{
+height:27px;
+display:block;
+padding:0px 10px 0 10px;
+margin:0 4px 0 4px;
+_margin:0 2px 0 2px;
+float:left;
+text-decoration:none;
+text-align:center;
+color:#fff;
+font-size:13px;
+line-height:25px;
+}
+#menu ul li.selected a{
+height:27px;
+display:block;
+padding:0px 10px 0 10px;
+margin:0 5px 0 5px;
+float:left;
+text-decoration:none;
+text-align:center;
+color:#f7a849;
+font-size:13px;
+line-height:25px;
+}
+#menu ul li a:hover{
+color:#f7a849;
+}
+
