@@ -6,6 +6,8 @@ class StoreController < ApplicationController
 	  else
 	  	@products = Product.all
 	  	@cart = current_cart
+	  	@categories = Category.all
+	  	@category_nodes = Category_node.all
 	  end
 		
 		if session[:user_id] == nil

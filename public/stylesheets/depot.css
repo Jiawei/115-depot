@@ -139,6 +139,27 @@ body {
 	color: #fff;
 	background-color: #3A8B8E;
 }
+
+.cat{
+  font-size: 5px;
+  color: #8600FF;
+}
+
+#side h4{
+  font-size: 15px;
+  margin: 0px;
+  color: #F1E1FF;
+  font-weight: bold;
+  margin-bottom: 5px;
+  border-bottom: 3px dotted #7777DD;
+  width: 100px;
+}
+
+.cat p{
+  color: #F1E1FF;
+  font-weight: bold;
+  margin: 0px;
+}
 /* END:mainlayout */
 
 /* An entry in the store catalog */
