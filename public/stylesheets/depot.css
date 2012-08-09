@@ -119,6 +119,7 @@ body {
   padding-top: 4ex;
   padding-left: 2em;
   background: white;
+  min-height: 500px;
 }
 
 #side {
@@ -245,7 +246,7 @@ body {
 
 #store .cart_body {
   margin-top: 20px;
-  font-size: 12pt;	
+  font-size: 14px;	
 }
 
 #store #table_title {
@@ -307,13 +308,40 @@ body {
 }
 
 #store .item_price, #store .total_line {
-  text-align: right;
+  float: right;
+  margin-right: 20px;
+  margin-top: 20px;
+  padding: 3px;
+  border-radius: 20px;
+  background-color: orange;
+  color: #FFFFFF;
 }
 
 #store .total_line .total_cell {
   font-weight: bold;
-  border-top: 1px solid #595;
+  font-size: 14px;
 }
+
+.btn_cart {
+  border: none;
+  float: right;
+  margin-right: 20px;
+  margin-top: 20px;
+  padding: 3px;
+  border-radius: 20px;
+  background-color: orange;
+  color: #FFFFFF;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.warning {
+  float: left;
+  background-color: #999999;
+  margin: 20px;
+}
+
 /* END:cartmain */
 
 /* START:cartside */
