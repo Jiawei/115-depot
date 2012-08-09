@@ -1,3 +1,18 @@
+<div id="store_side">
+  <!--Category-->
+  <h4>Category</h4>
+  <div class="cat">
+    <% @categories.each do |category| %>
+      <p>[<%= category.title %>]</p>
+      <% @category_nodes.each do |category_node| %>
+        <% if category_node.parent == category.title %>
+          <a href> <%= category_node.title %> </a> <br />
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
 <% if notice %>
 <p id="notice" ><%= notice %></p>
 <% end %>

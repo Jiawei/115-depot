@@ -1,11 +1,11 @@
 <%if line_item == @current_item %>
-<tr id="current_item">
+<div id="current_item" class="line_item">
 <% else %>
-<tr>
+<div class="line_item">
 <% end %>
-	<td><%= line_item.quantity %>&times;</td>
-	<td><%= line_item.product.title %></td>
-	<td class="item_price"><%= number_to_currency(line_item.total_price) %>
-	</td>
-</tr>
+	<span class="line_item_title"><%= image_tag(line_item.product.image_url) %><%= line_item.product.title %></span>
+	<span class="line_item_number"><%= line_item.product.price %></span>
+	<span class="line_item_number"><%= line_item.quantity %></span>
+	<span class="line_item_number"><%= number_to_currency(line_item.total_price) %></span>
+</div>
 	

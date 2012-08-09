@@ -7,6 +7,9 @@ function addToCart(user){
 		document.getElementById("login_suggest").className = "suggest play";
 		var url = window.location.href;
 		var language = url.substr(url.lastIndexOf('/')+1, 2);
-		setTimeout(function(){window.location.href = "login?locale="+language+"&backurl="+window.location.href;},3000);
+		if( language != "en" || language != "es"){
+			language ="en";
+		}
+		setTimeout(function(){window.location.href = "login?locale="+language;},3000);
 	}
 }
