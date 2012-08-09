@@ -7,9 +7,7 @@ class ApplicationController < ActionController::Base
   def current_cart
     puts session[:user_id]
     puts session[:user_id].class
-
-  	cart = Cart.find_by_user_id(User.find(session[:user_id]))
-  	
+  	cart = Cart.find_by_user_id(User.find(session[:user_id]))  	
     rescue ActiveRecord::RecordNotFound
   end
 
@@ -40,4 +38,10 @@ class ApplicationController < ActionController::Base
   def default_url_options
     { :locale => I18n.locale }
   end
+
+  def cate
+    category_nodes = Category_node.all
+    categories = Category.all
+  end
+
 end
