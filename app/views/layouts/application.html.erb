@@ -72,11 +72,11 @@
 			<% end %>
 			
 			<% if session[:user_id] && User.find(session[:user_id]).usertype == "admin" %>
-				<br />
+			
 				<li><%= link_to 'Orders', orders_path %></li>
 				<li><%= link_to 'Products', products_path %></li>
 				<li><%= link_to 'Users', users_path %></li>
-				<br />
+				
 			<% end %>
 
 			<% if session[:user_id] && User.find(session[:user_id]).usertype == "seller" %>
