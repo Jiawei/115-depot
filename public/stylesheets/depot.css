@@ -258,7 +258,7 @@ body {
 #store #table_title {
   background-color: #BBFFBB;
   height: 30px;
-  width: 733px;
+  width: 900px;
   padding-top: 12px;
   font-size: 14pt;	
 }
@@ -285,7 +285,7 @@ body {
 
 #store .line_item {
   float: left;
-  width: 733px;
+  width: 900px;
   height: 90px;
   margin-top: 20px;
 }

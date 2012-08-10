@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120808024019) do
+ActiveRecord::Schema.define(:version => 20120810093910) do
 
   create_table "carts", :force => true do |t|
     t.datetime "created_at"
@@ -31,6 +31,15 @@ ActiveRecord::Schema.define(:version => 20120808024019) do
     t.datetime "updated_at"
   end
 
+  create_table "comments", :force => true do |t|
+    t.integer  "user_id"
+    t.text     "content"
+    t.integer  "grades"
+    t.integer  "product_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "line_items", :force => true do |t|
     t.integer  "product_id"
     t.integer  "cart_id"
@@ -38,6 +47,7 @@ ActiveRecord::Schema.define(:version => 20120808024019) do
     t.datetime "updated_at"
     t.integer  "quantity",   :default => 1
     t.integer  "order_id"
+    t.string   "state"
   end
 
   create_table "orders", :force => true do |t|
@@ -47,6 +57,9 @@ ActiveRecord::Schema.define(:version => 20120808024019) do
     t.string   "pay_type"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "seller_id"
+    t.integer  "customer_id"
+    t.string   "state"
   end
 
   create_table "products", :force => true do |t|
@@ -57,6 +70,7 @@ ActiveRecord::Schema.define(:version => 20120808024019) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "seller_id"
+    t.string   "categorynode_name"
   end
 
   create_table "searches", :force => true do |t|
@@ -71,6 +85,9 @@ ActiveRecord::Schema.define(:version => 20120808024019) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "usertype",        :default => "customer"
+    t.string   "image_url"
+    t.text     "address"
+    t.string   "email"
   end
 
 end

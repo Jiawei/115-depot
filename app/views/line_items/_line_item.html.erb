@@ -8,5 +8,6 @@
 	<div class="line_item_number"><%= line_item.product.price %></div>
 	<div class="line_item_number"><%= line_item.quantity %></div>
 	<div class="line_item_number"><%= number_to_currency(line_item.total_price) %></div>
+	<div class="line_item_number"><%= User.find(Product.find(line_item.product_id).seller_id).name %></div>
 </div>
 	

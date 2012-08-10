@@ -3,5 +3,5 @@ Dear <%= @order.name %>
 Thank you for your recent order from The Pragmatic Store.
 You ordered the following items:
 <%= render @order.line_items %>
-
+Product seller's name is: <%= User.find(@order.seller_id).name %>
 We'll send you a separate e-mail when your order ships.

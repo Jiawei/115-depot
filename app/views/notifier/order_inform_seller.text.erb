@@ -1,0 +1,6 @@
+
+Dear <%= User.find(@order.seller_id).name %>
+Customer: <%= User.find(@order.customer_id).name %> placed an ordered for the following products from The Pragmatic Store.
+Customer: <%= User.find(@order.customer_id).name %> ordered the following items:
+<%= render @order.line_items %>
+Please deal with the order on time.

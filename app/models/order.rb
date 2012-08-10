@@ -10,4 +10,11 @@ class Order < ActiveRecord::Base
       line_items << item
     end
   end
+  
+  def add_line_items_from_array(line_items_array)
+    line_items_array.each do |item|
+      item.cart_id = nil
+      line_items << item
+    end
+  end
 end

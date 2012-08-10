@@ -12,15 +12,17 @@
   </tr>
 
 <% @orders.each do |order| %>
-  <tr>
-    <td><%= order.name %></td>
-    <td><%= order.address %></td>
-    <td><%= order.email %></td>
-    <td><%= order.pay_type %></td>
-    <td><%= link_to 'Show', order %></td>
-    <td><%= link_to 'Edit', edit_order_path(order) %></td>
-    <td><%= link_to 'Destroy', order, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+	<% if order.seller_id == session[:user_id] || order.customer_id == session[:user_id] %>
+	  <tr>
+	    <td><%= order.name %></td>
+	    <td><%= order.address %></td>
+	    <td><%= order.email %></td>
+	    <td><%= order.pay_type %></td>
+	    <td><%= link_to 'Show', order %></td>
+	    <td><%= link_to 'Edit', edit_order_path(order) %></td>
+	    <td><%= link_to 'Destroy', order, :confirm => 'Are you sure?', :method => :delete %></td>
+	  </tr>
+	<% end %>
 <% end %>
 </table>
 
