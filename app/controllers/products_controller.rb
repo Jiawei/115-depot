@@ -25,7 +25,7 @@ class ProductsController < ApplicationController
   # GET /products/new.xml
   def new
     @product = Product.new
-    @categories = Categorynode.all.collect {|c| [c.title, c.id] }
+    @categories = Categorynode.all.collect {|c| [c.title, c.title] }
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @product }
@@ -35,6 +35,7 @@ class ProductsController < ApplicationController
   # GET /products/1/edit
   def edit
     @product = Product.find(params[:id])
+    @categories = Categorynode.all.collect {|c| [c.title, c.title] }
   end
 
   # POST /products
