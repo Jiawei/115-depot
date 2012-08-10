@@ -2,7 +2,7 @@
 .side{
   width: 180px;
   float: left;
-  background-color: #E9D5B3;
+  background-color: #F8EDD2;
 }
 
 .side h4{
@@ -61,7 +61,7 @@
   display: block;
   border-bottom: 1px solid #ddd;
   color: #066;
-  background-color: #E9D5B3;
+  background-color: #F8EDD2;
 }
 
 .cate div a:hover {
