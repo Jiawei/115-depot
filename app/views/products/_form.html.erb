@@ -20,6 +20,10 @@
     <%= f.text_area :description %>
   </div>
   <div class="field">
+    <%= f.label "Catagory Name" %><br />
+    <%= f.select :categorynode_name, @categories %>
+  </div>
+  <div class="field">
     <%= f.label :image_url %><br />
     <%= f.text_field :image_url %>
   </div>
