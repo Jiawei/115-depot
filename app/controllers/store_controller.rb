@@ -2,7 +2,7 @@ class StoreController < ApplicationController
   skip_before_filter :authorize
   def index
     @categories = Category.all
-	@categorynodes = Categorynode.all
+	  @categorynodes = Categorynode.all
 	if params[:set_locale]
 	  redirect_to store_path(:locale => params[:set_locale])
 	else

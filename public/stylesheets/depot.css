@@ -331,15 +331,74 @@ body {
 /* START:cartside */
 /* Styles for the cart in the sidebar */
 
-#cart, #cart table {
-  font-size: smaller;
-  color:     white;
+#cart {
+  font-size: 14px;
 }
 
-#cart table {
-  border-top:    1px dotted #595;
-  border-bottom: 1px dotted #595;
-  margin-bottom: 10px;
+#cart_notice #add_notice {
+  font-size: 16px;
+  font-weight: bold;
+  width: 340px;
+}
+
+#cart_notice #add_notice #cart_img {
+  float: left;
+  width: 60px;
+}
+
+#cart_notice #add_notice #success_content {
+  float: left;
+  width: 280px;
+  margin-top: 5px;
+}
+
+.cart_notice {
+  position: fixed;
+  left: 430px;
+  top: 250px;
+  border: 5px solid green;
+  background-color: #E0F8F8;
+  width: 400px;
+  height: 200px;
+  font-size: 16pt;
+  padding-top: 10px;
+}
+
+#cart #current_item {
+  float: left;
+  width: 380px;
+  margin: 10px;
+  padding-top: 5px;
+  border-top: 2px dotted #FFFFFF;
+}
+
+#cart #current_item img{
+  max-height: 70px;
+  max-width: 70px;
+}
+
+#cart #current_item .line_item_img {
+  float: left;
+  width: 58px;
+  margin-right: 10px;
+}
+
+#cart #current_item .line_item_title {
+  float: left;
+  margin-right: 10px;
+  width: 300px;
+}
+
+#cart #current_item .line_item_number {
+  float: left;
+  width: 300px;
+}
+
+#cart .total_line {
+  display: none;
+}
+#cart .cart_title, #cart .line_item {
+  display: none;
 }
 /* END:cartside */
 

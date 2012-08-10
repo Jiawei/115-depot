@@ -12,4 +12,8 @@ function addToCart(user){
 		}
 		setTimeout(function(){window.location.href = "login?locale="+language;},3000);
 	}
+	else{
+		document.getElementById("cart_notice").className = "cart_notice play";
+		setTimeout(function(){document.getElementById("cart_notice").className = "cart_notice display";},5000);
+	}
 }

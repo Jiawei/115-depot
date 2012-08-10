@@ -20,8 +20,8 @@ es:
       format:
         unit:      "$US"
         precision: 2
-        separator: ","
-        delimiter: "."
+        separator: "."
+        delimiter: ","
         format:    "%n&nbsp;%u"
 #END:currency
 

@@ -27,8 +27,8 @@ en:
       format:
         unit:               "$"
         precision:          2
-        separator:          ","
-        delimiter:          "."
+        separator:          "."
+        delimiter:          ","
         format:             "%u%n"
 
   orders:
