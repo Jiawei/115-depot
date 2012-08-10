@@ -71,12 +71,10 @@
 				<li><%= link_to 'Cart', @cart %> </li>
 			<% end %>
 			
-			<% if session[:user_id] && User.find(session[:user_id]).usertype == "admin" %>
-			
+			<% if session[:user_id] && User.find(session[:user_id]).usertype == "admin" %>			
 				<li><%= link_to 'Orders', orders_path %></li>
 				<li><%= link_to 'Products', products_path %></li>
 				<li><%= link_to 'Users', users_path %></li>
-				
 			<% end %>
 
 			<% if session[:user_id] && User.find(session[:user_id]).usertype == "seller" %>
