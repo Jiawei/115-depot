@@ -1,3 +1,26 @@
+  <div class="side">
+    <h4>Category</h4>
+    <div id="my_menu" class="cate">
+        <% @categories.each do |category| %>
+        <div>
+          <span> <%= category.title %> </span>
+          <% @categorynodes.each do |categorynode| %>
+            <% if categorynode.parent == category.title %>
+              <%= link_to categorynode.title, {:controller => "categories", :action => "index" ,:cate => categorynode.title} %>
+    
+            <% end %>
+          <% end %>
+        </div>
+        <% end %>
+      </div>
+  </div>
+
+<% if notice %>
+<h1 id="notice" ><%= notice %></h1>
+<% end %>
+
+<h3><%= @name %></h3>
+
 <h1> List Category </h1>
 
 <% @results.each do |product| %>

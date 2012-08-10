@@ -26,7 +26,7 @@
   <div class="entry" >
     <%= image_tag(product.image_url) %>
     <h3><%= product.title %></h3>
-    <%= sanitize(product.description) %>
+    <div class="description"><%= sanitize(product.description) %></div>
 
     <div class="price_line" >
       <span class="price"><%= number_to_currency(product.price, :separator => '.', :delimiter => ',') %></span>

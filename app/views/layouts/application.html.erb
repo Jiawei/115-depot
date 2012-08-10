@@ -105,6 +105,7 @@
 	</div>
 	
 	<div id="cart_notice" class="cart_notice display">
+		 <% if @cart %>
 		<div id="add_notice">
 			<div id="cart_img">
 			  <img src="images/success.png">
@@ -114,10 +115,9 @@
 			</div>
 		</div>
 		<div id="cart">
-		  <% if @cart %>
 		    <%= render @cart %>
-		  <% end %>
 		</div>
+		<% end %>
 	</div>
 </body>
 </html>

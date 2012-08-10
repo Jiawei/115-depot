@@ -2,6 +2,8 @@ class SearchesController < ApplicationController
   # GET /searches
   # GET /searches.xml
   def index
+    @categories = Category.all
+    @categorynodes = Categorynode.all
     if params[:q]
 	  @results = Product.search(params[:q])
 	end
