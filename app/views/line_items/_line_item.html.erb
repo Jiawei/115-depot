@@ -1,7 +1,7 @@
 <% if line_item == @current_item %>
-<div id="current_item" class="line_item">
+<div id="current_item">
 <% else %>
-<div class="<%= cycle("odd", "even") %>">
+<div class="<%= cycle("odd line_item", "even line_item") %>">
 <% end %>
 	<div class="line_item_img"><%= image_tag(line_item.product.image_url) %></div>
 	<div class="line_item_title"><%= line_item.product.title %></div>
