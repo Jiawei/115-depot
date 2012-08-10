@@ -195,6 +195,9 @@ body {
   font-size: 14pt;
 }
 
+#store .entry .description {
+	height: 120px;
+}
 #store .entry p {
   margin-top: 0.5em; 
   margin-bottom: 0.8em; 
@@ -202,6 +205,7 @@ body {
 }
 
 #store .entry .price_line {
+
   float: right;
   margin-top: 0.5em;
 }

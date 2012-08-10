@@ -105,6 +105,8 @@
 	</div>
 	
 	<div id="cart_notice" class="cart_notice display">
+		
+		 <% if session[:cart_id] != nil %>
 		<div id="add_notice">
 			<div id="cart_img">
 			  <img src="images/success.png">
@@ -114,10 +116,9 @@
 			</div>
 		</div>
 		<div id="cart">
-		  <% if @cart %>
-		    <%= render @cart %>
-		  <% end %>
+		    <%= render Cart.find(session[:cart_id]) %>
 		</div>
+		<% end %>
 	</div>
 </body>
 </html>
