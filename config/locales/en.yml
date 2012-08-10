@@ -68,3 +68,7 @@ en:
     index:
       add_html:               "Add to Cart"
 
+  categories:
+    index:
+      add_html:               "Add to Cart"
+

@@ -6,7 +6,9 @@
   <%= stylesheet_link_tag "depot", :media => "all" %>
   <%= javascript_include_tag :defaults %>
   <%= csrf_meta_tag %>
- 
+
+  <!--Login-->
+  <%= stylesheet_link_tag "login" %>
   <!--Category-->
     <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
   <%= stylesheet_link_tag "category" %>
@@ -50,15 +52,15 @@
 				<li class="selected">
 					<%= link_to t('.home'), store_path %>
 				</li>
-				<li>
+			<!--	<li>
 					<a href="http://www.../faq"><%= t('.questions') %></a>
-				</li>
+			</li>  -->
 				<li>
 					<a href="http://www.../news"><%= t('.news') %></a>
 				</li>
-				<li>
+			<!--	<li>
 					<a href="http://www.../contact"><%= t('.contact') %></a>
-				</li>
+			</li>  -->
 				<li><%= link_to 'Help', {:controller => "help", :action => "index" } %>
 					
 				</li>
@@ -71,12 +73,10 @@
 				<li><%= link_to 'Cart', Cart.find(session[:cart_id]) %> </li>
 			<% end %>
 			
-			<% if session[:user_id] && User.find(session[:user_id]).usertype == "admin" %>
-				<br />
+			<% if session[:user_id] && User.find(session[:user_id]).usertype == "admin" %>			
 				<li><%= link_to 'Orders', orders_path %></li>
 				<li><%= link_to 'Products', products_path %></li>
 				<li><%= link_to 'Users', users_path %></li>
-				<br />
 			<% end %>
 
 			<% if session[:user_id] && User.find(session[:user_id]).usertype == "seller" %>

@@ -3,10 +3,9 @@ class CategoriesController < ApplicationController
   # GET /categories.xml
   def index
     @categories = Category.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @categories }
+    @categorynodes = Categorynode.all
+    if params[:cate]
+      @results = Product.category(params[:cate])
     end
   end
 

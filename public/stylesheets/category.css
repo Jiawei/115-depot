@@ -1,33 +1,36 @@
 /* Category */
 .side{
-  width: 150px;
+  width: 180px;
   float: left;
+  background-color: #F8EDD2;
 }
 
 .side h4{
   font-size: 15px;
   margin: 0px;
-  color: gray;
+  color: #066;
   font-weight: bold;
-  margin-bottom: 5px;
-  border-bottom: 3px dotted #7777DD;
-  margin-top: 5px; 
+  margin-bottom: 10px;
+ /* border-bottom: 3px dotted #7777DD;  */
+  margin-top: 15px; 
   height: 18px; 
-  width: 80px;
+  width: 180px;
+  text-align: center;
 }
 
 .cate {
   float: left;
   padding-bottom: 10px;
-  width: 150px;
+  width: 180px;
   font-family: Arial, sans-serif;
   font-size: 12px;
   background: url(../images/bottom.gif) no-repeat  right bottom;
   color: #fff;
+  
 }
 
 .cate div {
-  background: url(../images/title.gif) repeat-x;
+  background: url(../images/title1.gif) repeat-x;
   overflow: hidden;
 }
 .cate div:first-child {
@@ -58,10 +61,11 @@
   display: block;
   border-bottom: 1px solid #ddd;
   color: #066;
+  background-color: #F8EDD2;
 }
 
 .cate div a:hover {
-  background : #066 url(linkarrow.gif) no-repeat right center;
+  background : #5B9E95 url(linkarrow.gif) no-repeat right center;
   color: #fff;
   text-decoration: none;
 }

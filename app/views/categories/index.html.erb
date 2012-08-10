@@ -1,23 +1,15 @@
-<h1>Listing categories</h1>
+<h1> List Category </h1>
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<% @results.each do |product| %>
+  <div class="entry">
+    <%= image_tag(product.image_url) %>
+    <h3><%= product.title %></h3>
+    <%= sanitize(product.description) %>
+    <div class="price_line">
+      <span class="price"><%= number_to_currency(product.price, :separator => '.', :delimiter => ',') %></span>
+      <%= button_to t('.add_html'), line_items_path(:product_id => product),
+      :remote => true, :class => "btn_buy" %>
+    </div> 
+  </div>
 
-<% @categories.each do |category| %>
-  <tr>
-    <td><%= category.title %></td>
-    <td><%= link_to 'Show', category %></td>
-    <td><%= link_to 'Edit', edit_category_path(category) %></td>
-    <td><%= link_to 'Destroy', category, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
 <% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Category', new_category_path %>

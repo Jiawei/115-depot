@@ -121,13 +121,30 @@ body {
 }
 
 #main h3{
-  margin-left: 160px;
+  margin-left: 200px;
   margin-top: 0px; 
   padding-top: 15px;
 }
 
 #main h1{
-  margin-left: 160px;
+  margin-left: 200px;
+}
+
+#main h2{
+	border-bottom: 3px dotted #7777DD;
+
+    color: #222266;
+    font: 200% sans-serif;
+}
+#main h4{
+	margin-left: 10px;
+  margin-top: 0px; 
+  padding-top: 15px;
+  font: 150% sans-serif;
+}
+#main p{
+	margin-left:10px;
+	font-size: 13px;
 }
 
 .cat{
@@ -147,7 +164,7 @@ body {
 
 
 #store  .entry {
-  margin-left: 160px;
+  margin-left: 210px;
   overflow: auto;
   margin-top: 1em;
   border-bottom: 1px dotted #77d;
@@ -158,6 +175,7 @@ body {
 #store  .title {
   font-size: 120%;
   font-family: sans-serif;
+  
 }
 
 #store .entry img {

@@ -6,7 +6,8 @@
           <span> <%= category.title %> </span>
           <% @categorynodes.each do |categorynode| %>
             <% if categorynode.parent == category.title %>
-              <a href=""><%= categorynode.title %></a>
+              <%= link_to categorynode.title, {:controller => "categories", :action => "index" ,:cate => categorynode.title} %>
+    
             <% end %>
           <% end %>
         </div>
@@ -14,14 +15,11 @@
       </div>
   </div>
 
-
 <% if notice %>
-<p id="notice" ><%= notice %></p>
+<h1 id="notice" ><%= notice %></h1>
 <% end %>
 
 <h3><%= @name %></h3>
-
-
 
 <h1><%= t('.title_html') %></h1>
 <% @products.each do |product| %>

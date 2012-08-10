@@ -14,7 +14,7 @@ class Product < ActiveRecord::Base
 	end
 	has_many :line_items
 	has_many :orders, :through => :line_items
-	validates :title, :description, :image_url, :presence => true
+	validates :title, :description, :image_url, :categorynode_name, :presence => true
 	validates :price, :numericality => {:greater_than_or_equal_to => 0.01}
 	validates :title, :uniqueness => true
 	validates :image_url, :format => {
@@ -26,7 +26,16 @@ class Product < ActiveRecord::Base
 	def self.search(query)
 	  if query
 	    find(:all, :conditions => ['title LIKE ?',"%#{query}%"])
-    else
+      else
+	    find(:all)
+	  end
+	end
+
+	# This is cate
+	def self.category(query)
+	  if query
+	    find(:all, :conditions => ['categorynode_name LIKE ?',"%#{query}%"])
+      else
 	    find(:all)
 	  end
 	end
