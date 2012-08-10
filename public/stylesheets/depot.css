@@ -130,6 +130,24 @@ body {
   margin-left: 200px;
 }
 
+#main h2{
+	margin-left:10px;
+	border-bottom: 3px dotted #7777DD;
+
+    color: #222266;
+    font: 200% sans-serif;
+}
+#main h4{
+	margin-left: 10px;
+  margin-top: 0px; 
+  padding-top: 15px;
+  font: 150% sans-serif;
+}
+#main p{
+	margin-left:10px;
+	font-size: 13px;
+}
+
 .cat{
   font-size: 5px;
   color: #8600FF;
