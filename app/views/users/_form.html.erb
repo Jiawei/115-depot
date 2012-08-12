@@ -17,7 +17,7 @@
 					<%= f.label :name %>:
 					<%= f.text_field :name, :size => 40 %>
 				</div>
-				<% if session[:user_id] && @user.usertype != "admin" %>
+				<% if session[:user_id] == nil || (session[:user_id] && @user.usertype != "admin") %>
 				  <div class="field">
 					<%= f.label :usertype, 'UserType:' %>
 					<%= f.select :usertype, User::USER_TYPES,
