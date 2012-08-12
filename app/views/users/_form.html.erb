@@ -17,10 +17,13 @@
 					<%= f.label :name %>:
 					<%= f.text_field :name, :size => 40 %>
 				</div>
-				<div class="field">
+				<% if session[:user_id] && @user.usertype != "admin" %>
+				  <div class="field">
 					<%= f.label :usertype, 'UserType:' %>
 					<%= f.select :usertype, User::USER_TYPES,
 							:promt => 'usertype'%>
+				  </div>
+				<%end%>
 				<div>
 					<%= f.label :password, 'Password' %>:
 					<%= f.password_field :password, :size => 40 %>

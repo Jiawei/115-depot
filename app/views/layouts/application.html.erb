@@ -92,14 +92,13 @@
 						<%= link_to 'Cart', Cart.find(session[:cart_id]) %>
 					</li>
 					<li>
-						<%= link_to 'EditMyInf', edit_user_path(session[:user_id])%>
+					    <%= link_to 'EditMyInf', edit_user_path(session[:user_id])%>  
+					
 					</li>
 					<% end %>
 
 					<% if session[:user_id] %>
-					<li>
-						<%= link_to 'Orders', orders_path %>
-					</li>
+					
 					<li>
 						<%= link_to 'logout', logout_path, :method => :delete %>
 					</li>
