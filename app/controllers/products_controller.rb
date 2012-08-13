@@ -95,15 +95,16 @@ class ProductsController < ApplicationController
   def detail
     @product = Product.find(params[:id])
     @comments = Comment.where(:product_id => @product.id)
-    @user = User.find(session[:user_id])
     session[:product_id] = @product.id
 
 
 
     @average = 0
     sum = 0
+    @count_com = 0
     unless @comments.empty?
       @comments.each do |c| 
+        @count_com += 1
         sum += c.grades 
       end   
       @average = sum / @comments.size
