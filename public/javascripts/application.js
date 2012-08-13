@@ -14,6 +14,6 @@ function addToCart(user){
 	}
 	else{
 		document.getElementById("cart_notice").className = "cart_notice play";
-		//setTimeout(function(){document.getElementById("cart_notice").className = "cart_notice display";},3000);
+		setTimeout(function(){document.getElementById("cart_notice").className = "cart_notice display";},3000);
 	}
 }
