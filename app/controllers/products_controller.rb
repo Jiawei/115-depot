@@ -101,10 +101,8 @@ class ProductsController < ApplicationController
 
     @average = 0
     sum = 0
-    @count_com = 0
     unless @comments.empty?
       @comments.each do |c| 
-        @count_com += 1
         sum += c.grades 
       end   
       @average = sum / @comments.size
