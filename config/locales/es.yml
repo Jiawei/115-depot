@@ -70,6 +70,12 @@ es:
       checkout:    "Comprar"
 #END:cart
 
+#START:product
+  products:
+    detail:
+      add_html:    "A&ntilde;adir al Carrito"
+#END:product
+
 #START:main
   store:
     index:

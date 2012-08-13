@@ -1,8 +1,11 @@
 <div id="product">
+  <h1>
+  	<%= @product.title%>
+  </h1>
   <%= image_tag( @product.image_url) %>
-  <p>
-    <b>Title:</b>
-    <%= @product.title %>
+ <p>
+    <b>Price:</b>
+    <%= number_to_currency(@product.price, :separator => '.', :delimiter => ',') %>
   </p>
 
   <p>
@@ -15,10 +18,6 @@
     <%= @product.description %>
   </p>
 
-  <p>
-    <b>Price:</b>
-    <%= @product.price %>
-  </p>
 
   <p>
     <b>Average Grade :</b>
@@ -27,7 +26,9 @@
   </p>
 
   <div class="list_comment">
+  	<p>
     <b>Comment:</b>
+    </p>
     <% @comments.each do |comment| %>
       <div class="each_comment">
         <p>
@@ -46,6 +47,13 @@
         </p>
       </div>
       <% end %>
+      <div class="entry">
+        <div class="price_line" >
+          <span class="price"><%= number_to_currency(@product.price, :separator => '.', :delimiter => ',') %></span>
+          <%= button_to t('.add_html'), line_items_path(:product_id => @product),
+            :remote => true, :class => "btn_buy", :onclick => "addToCart("+session[:user_id].to_s+")" %>
+        </div>
+      </div>
   </div>
 
   

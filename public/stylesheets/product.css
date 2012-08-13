@@ -1,17 +1,24 @@
 #product {
 	margin-top: 25px;
-	margin-left: 25px;
+	
 }
 
+#product h1{
+	border-bottom: 3px dotted #7777DD;
+    color: #222266;
+    font: 200% sans-serif;
+    margin-left:0px;
+}
 #product img {
 	float: left;
-	width: 250px;
-	height: 320px;
+	width: 200px;
+	height: 280px;
+	margin-left:25px;
 }
 
 #product p {
-	margin-left: 285px;
-	font-size: 17px;
+	margin-left: 265px;
+	font-size: 15px;
 }
 
 #product a {

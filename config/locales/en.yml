@@ -10,7 +10,11 @@ en:
       news:             "News"
       contact:          "Contact"
       help:             "help"
-
+  
+  products:
+    detail:
+      add_html:           "Add to Cart"
+      
   store:
    index:
      title_html:        "Your Pragmatic Catalog"
