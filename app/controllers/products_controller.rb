@@ -44,6 +44,7 @@ class ProductsController < ApplicationController
     @product = Product.new(params[:product])
     @product.seller_id = session[:user_id]
 
+
     respond_to do |format|
       if @product.save
         format.html { redirect_to(@product, :notice => 'Product was successfully created.') }
@@ -93,6 +94,21 @@ class ProductsController < ApplicationController
 
   def detail
     @product = Product.find(params[:id])
+    @comments = Comment.where(:product_id => @product.id)
+    @user = User.find(session[:user_id])
+    session[:product_id] = @product.id
+
+
+
+    @average = 0
+    sum = 0
+    unless @comments.empty?
+      @comments.each do |c| 
+        sum += c.grades 
+      end   
+      @average = sum / @comments.size
+    end
+
 
     respond_to do |format|
       format.html # show.html.erb

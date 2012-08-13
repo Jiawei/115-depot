@@ -14,6 +14,8 @@ class CommentsController < ApplicationController
   # GET /comments/1.xml
   def show
     @comment = Comment.find(params[:id])
+    @user_name = User.find(session[:user_id]).name
+    @product_name = Product.find(session[:product_id]).title
 
     respond_to do |format|
       format.html # show.html.erb
@@ -25,7 +27,6 @@ class CommentsController < ApplicationController
   # GET /comments/new.xml
   def new
     @comment = Comment.new
-
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @comment }
@@ -41,6 +42,8 @@ class CommentsController < ApplicationController
   # POST /comments.xml
   def create
     @comment = Comment.new(params[:comment])
+    @comment.product_id = session[:product_id]
+    @comment.user_id = session[:user_id]
 
     respond_to do |format|
       if @comment.save

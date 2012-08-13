@@ -2,6 +2,7 @@ class Product < ActiveRecord::Base
 	default_scope :order => 'title'
 	before_destroy :ensure_not_referenced_by_any_line_item
 	belongs_to :users
+	has_many :comments
 
 	private 
 	def ensure_not_referenced_by_any_line_item
