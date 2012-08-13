@@ -1,4 +1,4 @@
-<%= form_for(@order) do |f| %>
+<%= form_for(@order,@user) do |f| %>
   <% if @order.errors.any? %>
     <div id="error_explanation">
 		<%= t('errors.template.header', :count=>@order.errors.size,
