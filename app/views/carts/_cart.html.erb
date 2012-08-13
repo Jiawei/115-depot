@@ -1,14 +1,13 @@
 <div id="cart_body">
     <div class="cart_title">Your Cart</div>
-
-	<%= render @cart.line_items %>
+	<%= render Cart.find(session[:cart_id]).line_items %>
 
 	<div class="total_line">
 		<span class="total_cell">Total in cart: </span>
-		<span class="total_cell"><%= number_to_currency(@cart.total_price) %> </span>
+		<span class="total_cell"><%= number_to_currency(Cart.find(session[:cart_id]).total_price) %> </span>
 	</div>
 
 	<div class="goto_cart">
-		<%= button_to 'Go To My Cart', @cart, :method => :get, :class => "btn_cart" %>
+		<%= button_to 'Go To My Cart', Cart.find(session[:cart_id]), :method => :get, :class => "btn_cart" %>
 	</div>
 </div>

@@ -313,6 +313,12 @@ body {
   padding-top: 35px;
 }
 
+#store .line_item .quantity input {
+  width: 30px;
+  text-align: center;
+}
+
+
 #store .item_price, #store .total_line {
   float: right;
   margin-right: 20px;
