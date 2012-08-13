@@ -3,11 +3,11 @@
 one:
   user_id: 1
   content: MyText
-  grades: 1
   product_id: 1
+  grade: 1
 
 two:
   user_id: 1
   content: MyText
-  grades: 1
   product_id: 1
+  grade: 1

@@ -91,6 +91,12 @@ class ProductsController < ApplicationController
     end
   end
 
-  def aaa
+  def detail
+    @product = Product.find(params[:id])
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.xml  { render :xml => @product }
+    end
   end
 end

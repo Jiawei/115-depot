@@ -1,4 +1,6 @@
 Depot::Application.routes.draw do
+  resources :comments
+
   resources :category_nodes
 
   resources :categories
@@ -7,8 +9,7 @@ Depot::Application.routes.draw do
   get "help/index"
   get "help/register"
   get "help/login"
-  get "book/action1"
-  get "book/action2"
+  get "products/detail"
 
   get 'admin' => 'admin#index'
   controller :sessions do
@@ -16,7 +17,6 @@ Depot::Application.routes.draw do
 	  post 'login' => :create
 	  delete 'logout' => :destroy
   end
-
   scope '(:locale)' do
 	  resources :help
 	  resources :users

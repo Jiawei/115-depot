@@ -6,7 +6,8 @@
 		<%= stylesheet_link_tag "depot", :media => "all" %>
 		<%= javascript_include_tag :defaults %>
 		<%= csrf_meta_tag %>
-
+		<!--Product-->
+		<%= stylesheet_link_tag "product" %>
 		<!--Login-->
 		<%= stylesheet_link_tag "login" %>
 		<!--Category-->
@@ -92,14 +93,13 @@
 						<%= link_to 'Cart', Cart.find(session[:cart_id]) %>
 					</li>
 					<li>
-						<%= link_to 'EditMyInf', edit_user_path(session[:user_id])%>
+					    <%= link_to 'EditMyInf', edit_user_path(session[:user_id])%>  
+					
 					</li>
 					<% end %>
 
 					<% if session[:user_id] %>
-					<li>
-						<%= link_to 'Orders', orders_path %>
-					</li>
+					
 					<li>
 						<%= link_to 'logout', logout_path, :method => :delete %>
 					</li>

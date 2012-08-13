@@ -37,6 +37,7 @@ class UsersController < ApplicationController
   def edit
     @user = User.find(params[:id])
   end
+  
 
   # POST /users
   # POST /users.xml
@@ -67,8 +68,12 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.update_attributes(params[:user])
-        format.html { redirect_to(users_url, :notice => "User #{@user.name} was successfully updated.") }
-        format.xml  { head :ok }
+        if (session[:user_id] && User.find(session[:user_id]).usertype == "admin")
+          format.html { redirect_to(users_url, :notice => "User #{@user.name} was successfully updated.") }
+        else
+          format.html { redirect_to(store_url, :notice => "User #{@user.name} was successfully updated.") }
+        end
+        format.xml  { head :ok } 
       else
         format.html { render :action => "edit" }
         format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
