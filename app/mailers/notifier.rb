@@ -26,6 +26,6 @@ class Notifier < ActionMailer::Base
   def order_inform_seller(order)
     @order = order
     
-    mail :to => order.email, :subject => 'Pragmatic Store Order Notification'
+    mail :to => User.find(order.seller_id).email, :subject => 'Pragmatic Store Order Notification'
   end
 end

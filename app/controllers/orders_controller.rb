@@ -64,7 +64,6 @@ class OrdersController < ApplicationController
       @order.state = "ordered"
       @order.save
       Notifier.order_received(@order).deliver
-      @order.email = seller.email
       Notifier.order_inform_seller(@order).deliver
     end
     
@@ -106,6 +105,7 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:id])
     @order.state = "shipped"
     @order.save
+    Notifier.order_shipped(@order).deliver
     
     redirect_to orders_url
   end

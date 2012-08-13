@@ -2,6 +2,15 @@
 
 <div class="add_comment">
     <%= form_for(@comment) do |f| %>
+      <p>
+        <b>User:</b>
+        <%= @user_name %>
+      </p>
+      <p>
+        <b>Product:</b>
+        <%= @product_name %>
+      </p>
+
       <div class="field">
       <%= f.label :content %><br />
       <%= f.text_area :content %>

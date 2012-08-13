@@ -1,10 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Title:</b>
-  <%= @category.title %>
-</p>
+<% @categories.each do |category| %>
+  <tr>
+    <td><%= category.title %></td>
+    <td><%= link_to 'Show', category %></td>
+    <td><%= link_to 'Edit', edit_category_path(category) %></td>
+    <td><%= link_to 'Destroy', category, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+</br>
+<% end %>
 
-
+<!-- 
 <%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'Back', categories_path %>
+<%= link_to 'Back', categories_path %> -->

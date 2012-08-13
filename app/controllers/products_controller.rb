@@ -95,7 +95,6 @@ class ProductsController < ApplicationController
   def detail
     @product = Product.find(params[:id])
     @comments = Comment.where(:product_id => @product.id)
-    @user = User.find(session[:user_id])
     session[:product_id] = @product.id
 
 
@@ -108,6 +107,8 @@ class ProductsController < ApplicationController
       end   
       @average = sum / @comments.size
     end
+    @average = format("%.2f", @average)
+
 
 
     respond_to do |format|
