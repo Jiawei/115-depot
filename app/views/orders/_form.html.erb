@@ -1,4 +1,4 @@
-<%= form_for(@order,@user) do |f| %>
+<%= form_for(@order) do |f| %>
   <% if @order.errors.any? %>
     <div id="error_explanation">
 		<%= t('errors.template.header', :count=>@order.errors.size,
@@ -14,15 +14,15 @@
 
   <div class="field">
     <%= f.label :name, t('.name') %><br />
-    <%= f.text_field :name, :size => 40 %>
+    <%= f.text_field :name, :size => 40 , :value=> User.find(session[:user_id]).name%>
   </div>
   <div class="field">
     <%= f.label :address, t('.address') %><br />
-    <%= f.text_area :address, :rows => 3, :cols => 40 %>
+    <%= f.text_area :address, :rows => 3, :cols => 40 , :value=> User.find(session[:user_id]).address%>
   </div>
   <div class="field">
     <%= f.label :email, t('.email') %><br />
-    <%= f.text_field :email, :size => 40 %>
+    <%= f.text_field :email, :size => 40 , :value=> User.find(session[:user_id]).email%>
   </div>
   <div class="field">
     <%= f.label :pay_type, t('.pay_type') %><br />

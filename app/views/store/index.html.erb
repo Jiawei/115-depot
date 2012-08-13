@@ -25,7 +25,7 @@
 <% @products.each do |product| %>
   <div class="entry" >
     <%= image_tag(product.image_url) %>
-    <%= link_to product.title, {:controller => "products", :action => "detail" ,:id => product.id} %>
+    <%= link_to product.title, {:controller => "products", :action => "detail" ,:id => product.id } %>
     
     <div class="description"><%= sanitize(product.description) %></div>
 
