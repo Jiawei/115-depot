@@ -13,8 +13,8 @@ class CategoriesController < ApplicationController
   # GET /categories/1.xml
   # show category
   def show
-    @category_nodes = Category_node.all
     @categories = Category.all
+    @categorynodes = Categorynode.all
   end
 
   # GET /categories/new

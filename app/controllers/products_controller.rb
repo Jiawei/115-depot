@@ -107,6 +107,8 @@ class ProductsController < ApplicationController
       end   
       @average = sum / @comments.size
     end
+    @average = format("%.2f", @average)
+
 
 
     respond_to do |format|
