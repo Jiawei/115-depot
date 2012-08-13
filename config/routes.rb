@@ -1,11 +1,12 @@
 Depot::Application.routes.draw do
-  resources :comments
 
   resources :category_nodes
 
   resources :categories
 
+  post "comments/new"
   resources :searches
+  resources :comments
   
   get "help/index"
   get "help/register"
