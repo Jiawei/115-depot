@@ -5,7 +5,12 @@ class SearchesController < ApplicationController
     @categories = Category.all
     @categorynodes = Categorynode.all
     if params[:q]
-	  @results = Product.search(params[:q])
+	    @results = Product.search(params[:q])
+    end
+    if Product.search(params[:q]).empty?
+      @results = 0
+
+
 	end
   end
 

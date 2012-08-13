@@ -23,11 +23,14 @@
 
 
 <h1>Search</h1>
+<% if @results == 0 %>
+  <h4> Aha!! Can not find it!! Try another word! </h4>
+  <% else %>
 
 <% @results.each do |product| %>
   <div class="entry">
   	<%= image_tag(product.image_url) %>
-  	<h3><%= product.title %></h3>
+  	<%= link_to product.title, {:controller => "products", :action => "detail" ,:id => product.id } %>
   	<%= sanitize(product.description) %>
   	<div class="price_line">
       <span class="price"><%= number_to_currency(product.price, :separator => '.', :delimiter => ',') %></span>
@@ -36,5 +39,6 @@
   	</div> 
   </div>
 
+<% end %>
 <% end %>
 
