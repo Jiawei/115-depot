@@ -18,3 +18,7 @@ function addToCart(user){
 	}
 }
 
+
+function ship(orderid){
+	alert(0);
+}

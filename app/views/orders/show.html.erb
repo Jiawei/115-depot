@@ -26,6 +26,11 @@
 </p>
 
 <p>
+  <b>Pay type:</b>
+  <%= @order.state %>
+</p>
+
+<p>
 	<b>Products:</b>
 	<% LineItem.where(:order_id => @order.id).each do |l| %>
 		<%= render l %>

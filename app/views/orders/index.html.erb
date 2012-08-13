@@ -2,10 +2,12 @@
 
 <table>
   <tr>
+  	<th>Order id</th>
     <th>Name</th>
     <th>Address</th>
     <th>Email</th>
     <th>Pay type</th>
+    <th>State</th>
     <th></th>
     <th></th>
     <th></th>
@@ -14,12 +16,18 @@
 <% @orders.each do |order| %>
 	<% if order.seller_id == session[:user_id] || order.customer_id == session[:user_id] %>
 	  <tr>
+	  	<td><%= order.id %></td>
 	    <td><%= order.name %></td>
 	    <td><%= order.address %></td>
 	    <td><%= order.email %></td>
 	    <td><%= order.pay_type %></td>
+	    <td><%= order.state %></td>
 	    <td><%= link_to 'Show', order %></td>
-	    <td><%= link_to 'Destroy', order, :confirm => 'Are you sure?', :method => :delete %></td>
+	    <td>
+	    	<% if User.find(session[:user_id]).usertype == "seller" && order.state != "delivered" %>
+	    		<%= button_to 'deliver goods', store_path, :prompt => "deliver successful" ,:onclick => "ship("+order.id.to_s+")"%>
+	    	<% end %>
+	    </td>
 	  </tr>
 	<% end %>
 <% end %>

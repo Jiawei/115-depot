@@ -61,6 +61,7 @@ class OrdersController < ApplicationController
       line_items_array = line_items.select {|l| Product.find(l.product_id).seller_id == id}
 
       @order.add_line_items_from_array(line_items_array)
+      @order.state = "ordered"
       @order.save
       Notifier.order_received(@order).deliver
       @order.email = seller.email
