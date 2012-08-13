@@ -19,7 +19,7 @@
 				</div>
 				<% if session[:user_id] == nil || (session[:user_id] && @user.usertype != "admin") %>
 				  <div class="field">
-					<%= f.label :usertype, 'UserType:' %>
+					<%= f.label :usertype, 'UserType' %>:
 					<%= f.select :usertype, User::USER_TYPES,
 							:promt => 'usertype'%>
 				  </div>
@@ -33,11 +33,15 @@
 					<%= f.password_field :password_confirmation, :size => 40 %>
 				</div>
 				<div>
-<<<<<<< HEAD
+					<%= f.label :address, 'Address'%>:
+					<%= f.text_area :address, :rows => 3, :cols => 40 %>
+				</div>
+				<div> 
+					<%= f.label :email, 'Eamil' %>:
+					<%= f.text_field :email, :size => 40 %>
+				</div>
+				<div>
 					<%= submit_tag "Submit", :class => "submit" %>
-=======
-					<%= submit_tag "submit", :class => "submit" %>
->>>>>>> 266294f31f912a44a7a91f4b5c9a1267ecf74aff
 				</div>
 		</fieldset>
 	<% end %>
