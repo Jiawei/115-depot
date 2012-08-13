@@ -14,6 +14,7 @@ class Order < ActiveRecord::Base
   def add_line_items_from_array(line_items_array)
     line_items_array.each do |item|
       item.cart_id = nil
+      item.state = "ordered"
       line_items << item
     end
   end
