@@ -98,8 +98,10 @@
 					</li>
 					<% end %>
 
-					<% if session[:user_id] %>
-					
+					<% if session[:user_id] && User.find(session[:user_id]).usertype == "customer" %>
+					<li>
+						<%= link_to 'Orders', orders_path %>
+					</li>
 					<li>
 						<%= link_to 'logout', logout_path, :method => :delete %>
 					</li>
