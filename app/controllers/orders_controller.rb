@@ -50,10 +50,11 @@ class OrdersController < ApplicationController
   def create
     cart = current_cart
     line_items = LineItem.where(:cart_id => cart.id)
-    sellers_id = (line_items.map {|l| Product.find(l.product_id).seller_id})
+    sellers_id = line_items.map {|l| Product.find(l.product_id).seller_id}
     sellers_id.uniq!
 
     sellers_id.each do |id|
+      seller = User.find(id)
       @order = Order.new(params[:order])
       @order.seller_id = id
       @order.customer_id = session[:user_id]
@@ -62,15 +63,11 @@ class OrdersController < ApplicationController
       @order.add_line_items_from_array(line_items_array)
       @order.save
       Notifier.order_received(@order).deliver
+      @order.email = seller.email
       Notifier.order_inform_seller(@order).deliver
     end
-
+    
     respond_to do |format|
-      Cart.destroy(session[:cart_id])
-      session[:cart_id] = nil
-
-      cart = Cart.create(:user_id => session[:user_id])
-      session[:cart_id] = cart.id
       format.html { redirect_to(store_url, :notice => I18n.t('.thanks')) }
       format.xml  { render :xml => @order, :status => :created, :location => @order }
     end

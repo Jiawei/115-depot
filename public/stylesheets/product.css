@@ -1,0 +1,21 @@
+#product {
+	margin-top: 25px;
+	margin-left: 25px;
+}
+
+#product img {
+	float: left;
+	width: 250px;
+	height: 320px;
+}
+
+#product p {
+	margin-left: 285px;
+	font-size: 17px;
+}
+
+#product a {
+	font-size: 13px;
+	float: right;
+	margin-left: 20px;
+}

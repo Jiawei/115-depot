@@ -20,6 +20,17 @@
   <%= @order.pay_type %>
 </p>
 
+<p>
+  <b>Seller's name:</b>
+  <%= User.find(@order.seller_id).name %>
+</p>
 
-<%= link_to 'Edit', edit_order_path(@order) %> |
+<p>
+	<b>Products:</b>
+	<% LineItem.where(:order_id => @order.id).each do |l| %>
+		<%= render l %>
+	<% end %>
+</p>
+
+
 <%= link_to 'Back', orders_path %>

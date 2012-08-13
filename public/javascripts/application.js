@@ -17,3 +17,4 @@ function addToCart(user){
 		setTimeout(function(){document.getElementById("cart_notice").className = "cart_notice display";},3000);
 	}
 }
+
