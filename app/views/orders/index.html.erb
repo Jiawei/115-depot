@@ -24,8 +24,8 @@
 	    <td><%= order.state %></td>
 	    <td><%= link_to 'Show', order %></td>
 	    <td>
-	    	<% if User.find(session[:user_id]).usertype == "seller" && order.state != "delivered" %>
-	    		<%= button_to 'deliver goods', store_path, :prompt => "deliver successful" ,:onclick => "ship("+order.id.to_s+")"%>
+	    	<% if order.seller_id == session[:user_id] && order.state == "ordered" %>
+	    		<%= button_to 'deliver goods', {:controller => "orders", :action => "ship", :id => order.id}%>
 	    	<% end %>
 	    </td>
 	  </tr>

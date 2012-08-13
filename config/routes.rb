@@ -6,10 +6,12 @@ Depot::Application.routes.draw do
   resources :categories
 
   resources :searches
+  
   get "help/index"
   get "help/register"
   get "help/login"
   get "products/detail"
+  post "orders/ship"
 
   get 'admin' => 'admin#index'
   controller :sessions do

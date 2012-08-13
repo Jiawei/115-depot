@@ -101,4 +101,12 @@ class OrdersController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  def ship
+    @order = Order.find(params[:id])
+    @order.state = "shipped"
+    @order.save
+    
+    redirect_to orders_url
+  end
 end

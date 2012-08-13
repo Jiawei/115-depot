@@ -60,51 +60,58 @@
 					</li>
 
 					<% if session[:user_id] && User.find(session[:user_id]).usertype == "admin" %>
-					<li>
-						<%= link_to 'Orders', orders_path %>
-					</li>
-					<li>
-						<%= link_to 'Products', products_path %>
-					</li>
-					<li>
-						<%= link_to 'Users', users_path %>
-					</li>
-					<% end %>
+						<li>
+							<%= link_to 'Orders', orders_path %>
+						</li>
+						<li>
+							<%= link_to 'Products', products_path %>
+						</li>
+						<li>
+							<%= link_to 'Users', users_path %>
+						</li>
+						<li>
+					  	  	<%= link_to 'EditMyInf', edit_user_path(session[:user_id])%>  
+						</li>
+						<li>
+							<%= link_to 'logout', logout_path, :method => :delete %>
+						</li>
 
-					<% if session[:user_id] && User.find(session[:user_id]).usertype == "seller" %>
-					<li>
-						<%= link_to 'Orders', orders_path %>
-					</li>
-					<li>
-						<%= link_to 'Products', products_path %>
-					</li>
-					<% end %>
-
-					<% if session[:user_id] == nil %>
-
-					<li>
-						<%= link_to 'Register', {:controller => "users", :action => "new" } %>
-					</li>
-					<li>
-						<%= link_to 'Login', {:controller => "sessions", :action => "new"} %>
-					</li>
+					<% elsif session[:user_id] && User.find(session[:user_id]).usertype == "seller" %>
+						<li>
+							<%= link_to 'Orders', orders_path %>
+						</li>
+						<li>
+							<%= link_to 'Cart', Cart.find(session[:cart_id]) %>
+						</li>
+						<li>
+							<%= link_to 'Products', products_path %>
+						</li>
+						<li>
+					  	  	<%= link_to 'EditMyInf', edit_user_path(session[:user_id])%>  
+						</li>
+						<li>
+							<%= link_to 'logout', logout_path, :method => :delete %>
+						</li>
+					<% elsif session[:user_id] &&  User.find(session[:user_id]).usertype == "customer" %>
+						<li>
+							<%= link_to 'Orders', orders_path %>
+						</li>
+						<li>
+							<%= link_to 'Cart', Cart.find(session[:cart_id]) %>
+						</li>
+						<li>
+					  	  	<%= link_to 'EditMyInf', edit_user_path(session[:user_id])%>  
+						</li>
+						<li>
+							<%= link_to 'logout', logout_path, :method => :delete %>
+						</li>
 					<% else %>
-					<li>
-						<%= link_to 'Cart', Cart.find(session[:cart_id]) %>
-					</li>
-					<li>
-					    <%= link_to 'EditMyInf', edit_user_path(session[:user_id])%>  
-					
-					</li>
-					<% end %>
-
-					<% if session[:user_id] && User.find(session[:user_id]).usertype == "customer" %>
-					<li>
-						<%= link_to 'Orders', orders_path %>
-					</li>
-					<li>
-						<%= link_to 'logout', logout_path, :method => :delete %>
-					</li>
+						<li>
+							<%= link_to 'Register', {:controller => "users", :action => "new" } %>
+						</li>
+						<li>
+							<%= link_to 'Login', {:controller => "sessions", :action => "new"} %>
+						</li>
 					<% end %>
 
 				</ul>
