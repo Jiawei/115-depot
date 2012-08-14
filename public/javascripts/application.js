@@ -17,3 +17,9 @@ function addToCart(user){
 		setTimeout(function(){document.getElementById("cart_notice").className = "cart_notice display";},3000);
 	}
 }
+
+function auto_change_quantity(id){
+	var labels = document.getElementById("edit_line_item_"+id);
+	var button = labels[4];
+	button.click();
+}

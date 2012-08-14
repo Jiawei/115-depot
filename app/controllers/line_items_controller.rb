@@ -57,6 +57,17 @@ class LineItemsController < ApplicationController
     end
   end
 
+  def change_num
+    
+    @line_item = LineItem.find(params[:id])
+    @line_item.update_attributes(params[:line_item])
+    
+    respond_to do |format|
+      @cart = Cart.find(session[:cart_id])
+      format.html { redirect_to @cart }
+    end
+  end
+
   # PUT /line_items/1
   # PUT /line_items/1.xml
   def update
