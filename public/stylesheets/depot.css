@@ -26,20 +26,37 @@ body {
   padding-top: 50px;
 }
 
-#store #notice {
-  color: #000;
-  border: 2px solid red;
-  padding: 1em;
-  margin-bottom: 2em;
-  background-color: #f0f0f0;
-  font: bold smaller sans-serif;
+#notice_both {
+  position: fixed;
+  top: 0;
+  left: 860px;
+  background-color: white;
+  font-size: 13px;
+  text-decoration: blink;
+  text-align: center;
+  width: 175px;
 }
 
+#order_notice {
+  height: 21px;
+  padding-top: 2px;
+  border: 2px solid gray;
+}
 
-#store h1 {
-  font:  200% sans-serif;
-  color: #226;
-  border-bottom: 3px dotted #77d;
+#order_notice a {
+  text-decoration: none;
+}
+
+#order_notice_2 {
+  padding-top: 2px;
+  border: 2px solid gray;
+  border-top: 0px;
+  padding-top: 2px;
+  height: 21px;
+}
+
+#order_notice_2 a {
+  text-decoration: none;
 }
 
 /* Styles for products/index */
@@ -161,6 +178,20 @@ body {
 /* END:mainlayout */
 
 /* An entry in the store catalog */
+#store #notice {
+  color: #000;
+  border: 2px solid red;
+  padding: 1em;
+  margin-bottom: 2em;
+  background-color: #f0f0f0;
+  font: bold smaller sans-serif;
+}
+
+#store h1 {
+  font:  200% sans-serif;
+  color: #226;
+  border-bottom: 3px dotted #77d;
+}
 
 #store  .entry {
   margin-left: 210px;

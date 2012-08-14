@@ -62,6 +62,7 @@ class OrdersController < ApplicationController
 
       @order.add_line_items_from_array(line_items_array)
       @order.state = "ordered"
+      @order.notice = "new"
       @order.save
       Notifier.order_received(@order).deliver
       Notifier.order_inform_seller(@order).deliver
@@ -104,8 +105,27 @@ class OrdersController < ApplicationController
   def ship
     @order = Order.find(params[:id])
     @order.state = "shipped"
+    @order.notice = "delivered"
     @order.save
     Notifier.order_shipped(@order).deliver
+    
+    redirect_to orders_url
+  end
+  
+  def check
+    Order.where(:seller_id => session[:user_id]).each do |l|
+      l.notice = "checked"
+      l.save
+    end
+        
+    redirect_to orders_url
+  end
+  
+  def customer_check
+    Order.where(:customer_id => session[:user_id]).each do |c|
+      c.notice = "checked"
+      c.save
+    end
     
     redirect_to orders_url
   end

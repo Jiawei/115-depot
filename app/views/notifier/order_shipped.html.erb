@@ -4,6 +4,33 @@
 </p>
 
 <table>
-	<tr><th colspan="2">Qty</th><th>Description</th></tr>
-	<%= render @order.line_items %>
+	<tr>
+		<th colspan="2">Qty</th><th>Description</th>
+	</tr>
 </table>
+
+<p>
+	<% @order.line_items.each do |line_item| %>
+	<div class="<%= cycle("odd line_item", "even line_item") %>">
+		<div class="line_item_img">
+			<%= image_tag(line_item.product.image_url) %>
+		</div>
+		<div class="line_item_title">
+			<%= line_item.product.title %>
+		</div>
+		<div class="line_item_number">
+			<%= line_item.product.price %>
+		</div>
+		<div class="line_item_number quantity">
+			<%= line_item.quantity %>
+		</div>
+		<div class="line_item_number total_price">
+			<%= number_to_currency(line_item.total_price) %>
+		</div>
+		<div class="line_item_number">
+			<%= User.find(Product.find(line_item.product_id).seller_id).name %>
+		</div>
+	</div>
+	<% end %>
+
+</p>
