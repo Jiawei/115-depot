@@ -1,7 +1,7 @@
 Depot::Application.routes.draw do
 
-  resources :category_nodes
-
+  resources :categorynodes
+  get "categories/show_category"
   resources :categories
 
   post "comments/new"

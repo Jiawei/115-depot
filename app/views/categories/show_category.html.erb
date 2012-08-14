@@ -5,9 +5,8 @@
         <div>
           <span> <%= category.title %> </span>
           <% @categorynodes.each do |categorynode| %>
-            <% if categorynode.category_id == category.id  %>
-              <%= link_to categorynode.title, {:controller => "categories", :action => "show_category" ,:cate => categorynode.title} %>
-    
+            <% if categorynode.category_id == category.id %>
+              <%= link_to categorynode.title, {:controller => "categories", :action => "show_category" ,:cate => categorynode.title} %>    
             <% end %>
           <% end %>
         </div>
@@ -21,12 +20,12 @@
 
 <h3><%= @name %></h3>
 
-<h1><%= t('.title_html') %></h1>
-<% @products.each do |product| %>
+<h1> List Category </h1>
+
+<% @results.each do |product| %>
   <div class="entry" >
     <%= image_tag(product.image_url) %>
     <%= link_to product.title, {:controller => "products", :action => "detail" ,:id => product.id } %>
-    
     <div class="description"><%= sanitize(product.description) %></div>
 
     <div class="price_line" >
@@ -35,5 +34,5 @@
         :remote => true, :class => "btn_buy", :onclick => "addToCart("+session[:user_id].to_s+")" %>
     </div>
   </div>
-<% end %>
 
+<% end %>
