@@ -1,11 +1,13 @@
 /* Global styles */
 
 body {
+   background:url(../images/body_bg.gif) 0 0 repeat-x ; 
+}
+
+body #combox {
   width: 980px;
   margin: auto;	
-
- background:url(../images/body_bg.gif) 0 0 repeat-x ; 
-	color:#000;
+  color:#000;
 }
 
 .play {
@@ -598,10 +600,8 @@ body {
 
 
 #footer{
-	width:980px;
-	height:107px;
-	margin:0 auto;
-	padding:31px 0 0 0;
-	background:url(../images/footer_bg.gif) left bottom no-repeat;
-	position:relative;
+	height: 107px;
+	margin: 0 auto;
+	background:url(../images/footer_rbg.png) left bottom repeat-x;
+	text-align: center;
 }
