@@ -3,6 +3,9 @@
 body {
   width: 980px;
   margin: auto;	
+
+ background:url(../images/body_bg.gif) 0 0 repeat-x ; 
+	color:#000;
 }
 
 .play {
@@ -92,16 +95,17 @@ body {
 
 /* START:mainlayout */
 
-
 #banner {
-  background: #9c9;
+	
+  	background:url(../images/header.jpg) 0 0 no-repeat;
   padding-top: 10px;
   padding-bottom: 50px;
   border-bottom: 2px solid;
   font: small-caps 40px/40px "Times New Roman", serif;
   color: #282;
   text-align: center;
-  height:80px;
+  height:80px;  
+ 
 }
 
 #banner img {
@@ -117,7 +121,7 @@ body {
 /* Styles for main page */
 #main {
   background: white;
-  min-height: 500px;
+  min-height: 300px;
 }
 
 #main h3{
@@ -561,3 +565,12 @@ body {
 	 background-color:#228822;
 }
 
+
+#footer{
+	width:980px;
+	height:107px;
+	margin:0 auto;
+	padding:31px 0 0 0;
+	background:url(../images/footer_bg.gif) left bottom no-repeat;
+	position:relative;
+}
