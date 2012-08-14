@@ -1,19 +1,23 @@
-<% if line_item == @current_item %>
-<div id="current_item">
-<% else %>
-<div class="<%= cycle("odd line_item", "even line_item") %>">
-<% end %>
-	<div class="line_item_img"><%= image_tag(line_item.product.image_url) %></div>
-	<div class="line_item_title"><%= line_item.product.title %></div>
-	<div class="line_item_number"><%= line_item.product.price %></div>
-	<div class="line_item_number quantity">
-		<% if line_item == @current_item %>
-			<%= line_item.quantity %>
-		<% else %>
-			<input type="text" name="lname" value="<%= line_item.quantity %>" />
-		<% end %>
+	<% if line_item == @current_item %>
+	<div id="current_item">
+	<% else %>
+	<div class="<%= cycle("odd line_item", "even line_item") %>">
+	<% end %>
+		<div class="line_item_img"><%= image_tag(line_item.product.image_url) %></div>
+		<div class="line_item_title"><%= line_item.product.title %></div>
+		<div class="line_item_number"><%= line_item.product.price %></div>
+		<div class="line_item_number quantity">
+			<% if line_item == @current_item %>
+				<%= line_item.quantity %>
+				
+			<% else %>
+				<% form_for line_item, :method => :put, :url => change_num_line_item_path(line_item) do |f| %>
+					<%= f.number_field :quantity %> 
+					<!--<%= button_to 'sdf', { :controller => "line_items", :action => "change_num", :id => line_item.id}%>
+					--><%= submit_tag "Place Order" %> 
+				<% end %>
+			<% end %>
+		</div>
+		<div class="line_item_number total_price"><%= number_to_currency(line_item.total_price) %></div>
+		<div class="line_item_number"><%= User.find(Product.find(line_item.product_id).seller_id).name %></div>
 	</div>
-	<div class="line_item_number total_price"><%= number_to_currency(line_item.total_price) %></div>
-	<div class="line_item_number"><%= User.find(Product.find(line_item.product_id).seller_id).name %></div>
-</div>
-	

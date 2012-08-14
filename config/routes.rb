@@ -1,5 +1,9 @@
 Depot::Application.routes.draw do
-
+  
+  resources :line_items do
+    put :change_num, :on => :member
+  end
+  
   resources :category_nodes
 
   resources :categories
@@ -13,6 +17,7 @@ Depot::Application.routes.draw do
   get "help/login"
   get "products/detail"
   post "orders/ship"
+  post "line_items/change_num"
 
   get 'admin' => 'admin#index'
   controller :sessions do
@@ -24,7 +29,6 @@ Depot::Application.routes.draw do
 	  resources :help
 	  resources :users
 	  resources :orders
-	  resources :line_items
 	  resources :carts
 	  resources :products do 
 	    get :who_bought, :on => :member
