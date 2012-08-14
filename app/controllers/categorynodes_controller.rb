@@ -1,82 +1,89 @@
 class CategorynodesController < ApplicationController
-  # GET /category_nodes
-  # GET /category_nodes.xml
+  # GET /Categorynodes
+  # GET /Categorynodes.xml
   def index
-    @category_nodes = CategoryNode.all
+    @categorynodes = Categorynode.all
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml => @category_nodes }
+      format.xml  { render :xml => @categorynodes }
     end
   end
 
-  # GET /category_nodes/1
-  # GET /category_nodes/1.xml
+  # GET /Categorynodes/1
+  # GET /Categorynodes/1.xml
   def show
-    @category_node = CategoryNode.find(params[:id])
+    @categorynode = Categorynode.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
-      format.xml  { render :xml => @category_node }
+      format.xml  { render :xml => @categorynode }
     end
   end
 
-  # GET /category_nodes/new
-  # GET /category_nodes/new.xml
+  # GET /Categorynodes/new
+  # GET /Categorynodes/new.xml
   def new
-    @category_node = CategoryNode.new
-
+    @categorynode = Categorynode.new
+    session[:category_id] = params[:category_id]
+    @category_id = params[:category_id]
     respond_to do |format|
       format.html # new.html.erb
-      format.xml  { render :xml => @category_node }
+      format.xml  { render :xml => @categorynode }
     end
   end
 
-  # GET /category_nodes/1/edit
+  # GET /Categorynodes/1/edit
   def edit
-    @category_node = CategoryNode.find(params[:id])
+    @categorynode = Categorynode.find(params[:id])
+    @categories = Category.all.collect {|c| [c.title, c.id] }
   end
 
-  # POST /category_nodes
-  # POST /category_nodes.xml
+  # POST /Categorynodes
+  # POST /Categorynodes.xml
   def create
-    @category_node = CategoryNode.new(params[:category_node])
-
+    @categorynode = Categorynode.new(params[:categorynode])
+    @categorynode.category_id = session[:category_id]
     respond_to do |format|
-      if @category_node.save
-        format.html { redirect_to(@category_node, :notice => 'Category node was successfully created.') }
-        format.xml  { render :xml => @category_node, :status => :created, :location => @category_node }
+      if @categorynode.save
+        format.html { redirect_to({:controller => 'categories', :action => 'show',  
+          :id => @categorynode.category_id
+                }, :notice => 'Category node was successfully created.') }
+        format.xml  { render :xml => @categorynode, :status => :created, :location => @categorynode }
       else
         format.html { render :action => "new" }
-        format.xml  { render :xml => @category_node.errors, :status => :unprocessable_entity }
+        format.xml  { render :xml => @categorynode.errors, :status => :unprocessable_entity }
       end
     end
   end
 
-  # PUT /category_nodes/1
-  # PUT /category_nodes/1.xml
+  # PUT /Categorynodes/1
+  # PUT /Categorynodes/1.xml
   def update
-    @category_node = CategoryNode.find(params[:id])
-
+    @categorynode = Categorynode.find(params[:id])
     respond_to do |format|
-      if @category_node.update_attributes(params[:category_node])
-        format.html { redirect_to(@category_node, :notice => 'Category node was successfully updated.') }
+      if @categorynode.update_attributes(params[:categorynode])
+        format.html { redirect_to({:controller => 'categories', :action => 'show',  
+          :id => @categorynode.category_id
+                },:notice => 'Category node was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
-        format.xml  { render :xml => @category_node.errors, :status => :unprocessable_entity }
+        format.xml  { render :xml => @categorynode.errors, :status => :unprocessable_entity }
       end
     end
   end
 
-  # DELETE /category_nodes/1
-  # DELETE /category_nodes/1.xml
+  # DELETE /Categorynodes/1
+  # DELETE /Categorynodes/1.xml
   def destroy
-    @category_node = CategoryNode.find(params[:id])
-    @category_node.destroy
+    @categorynode = Categorynode.find(params[:id])
+    @categorynode.destroy
 
     respond_to do |format|
-      format.html { redirect_to(category_nodes_url) }
+      format.html { redirect_to({:controller => 'categories', :action => 'show', 
+        :id => @categorynode.category_id
+                },:notice => 'Categorynode was successfully destory.')  }
       format.xml  { head :ok }
     end
   end

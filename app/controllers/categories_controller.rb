@@ -13,8 +13,14 @@ class CategoriesController < ApplicationController
   # GET /categories/1.xml
   # show category
   def show
-    @categories = Category.all
+    @category = Category.find(params[:id])
+
     @categorynodes = Categorynode.all
+
+    respond_to do |format|
+      format.html # new.html.erb
+      format.xml  { render :xml => @category }
+    end
   end
 
   # GET /categories/new
@@ -40,7 +46,7 @@ class CategoriesController < ApplicationController
 
     respond_to do |format|
       if @category.save
-        format.html { redirect_to(@category, :notice => 'Category was successfully created.') }
+        format.html { redirect_to(categories_url, :notice => 'Category was successfully created.') }
         format.xml  { render :xml => @category, :status => :created, :location => @category }
       else
         format.html { render :action => "new" }
@@ -56,7 +62,7 @@ class CategoriesController < ApplicationController
 
     respond_to do |format|
       if @category.update_attributes(params[:category])
-        format.html { redirect_to(@category, :notice => 'Category was successfully updated.') }
+        format.html { redirect_to(categories_url, :notice => 'Category was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -72,8 +78,21 @@ class CategoriesController < ApplicationController
     @category.destroy
 
     respond_to do |format|
-      format.html { redirect_to(categories_url) }
+      format.html { redirect_to(categories_url ,:notice => 'Category was successfully destory.') }
       format.xml  { head :ok }
+    end
+  end
+
+  def show_category
+    @categories = Category.all
+    @categorynodes = Categorynode.all
+    if params[:cate]
+      @results = Product.category(params[:cate])
+    end
+
+    respond_to do |format|
+      format.html # new.html.erb
+      format.xml  { render :xml => @category }
     end
   end
 end

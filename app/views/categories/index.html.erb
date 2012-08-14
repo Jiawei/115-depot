@@ -1,39 +1,14 @@
-  <div class="side">
-    <h4>Category</h4>
-    <div id="my_menu" class="cate">
-        <% @categories.each do |category| %>
-        <div>
-          <span> <%= category.title %> </span>
-          <% @categorynodes.each do |categorynode| %>
-            <% if categorynode.parent == category.title %>
-              <%= link_to categorynode.title, {:controller => "categories", :action => "index" ,:cate => categorynode.title} %>
-    
-            <% end %>
-          <% end %>
-        </div>
-        <% end %>
-      </div>
-  </div>
+<p id="notice"><%= notice %></p>
+<table>
+  <% @categories.each do |category| %>
+    <tr>
+      <td><%= category.title %></td>
+      <td><%= link_to 'Show', category %></td>
+      <td><%= link_to 'Edit', edit_category_path(category) %></td>
+      <td><%= link_to 'Destroy', category, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
 
-<% if notice %>
-<h1 id="notice" ><%= notice %></h1>
-<% end %>
+<%= link_to 'New', new_category_path %>
 
-<h3><%= @name %></h3>
-
-<h1> List Category </h1>
-
-<% @results.each do |product| %>
-  <div class="entry" >
-    <%= image_tag(product.image_url) %>
-    <%= link_to product.title, {:controller => "products", :action => "detail" ,:id => product.id } %>
-    <div class="description"><%= sanitize(product.description) %></div>
-
-    <div class="price_line" >
-      <span class="price"><%= number_to_currency(product.price, :separator => '.', :delimiter => ',') %></span>
-      <%= button_to t('.add_html'), line_items_path(:product_id => product),
-        :remote => true, :class => "btn_buy", :onclick => "addToCart("+session[:user_id].to_s+")" %>
-    </div>
-  </div>
-
-<% end %>
