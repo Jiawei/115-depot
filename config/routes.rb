@@ -1,10 +1,17 @@
 Depot::Application.routes.draw do
+
+
+  resources :categorynodes
+  get "categories/show_category"
+
   
   resources :line_items do
     put :change_num, :on => :member
   end
+
   
   resources :category_nodes
+
 
   resources :categories
 

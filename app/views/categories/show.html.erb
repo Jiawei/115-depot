@@ -1,15 +1,26 @@
 <p id="notice"><%= notice %></p>
 
-<% @categories.each do |category| %>
-  <tr>
-    <td><%= category.title %></td>
-    <td><%= link_to 'Show', category %></td>
-    <td><%= link_to 'Edit', edit_category_path(category) %></td>
-    <td><%= link_to 'Destroy', category, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+  <table>
+    <tr>
+  	  <th><%= @category.title %></th>
+  	</tr>
+    <% @categorynodes.each do |categorynode| %>
+      <% if categorynode.category_id == @category.id %>
+      <tr>
+      	<td>
+          <%= categorynode.title %>
+        </td>
+        <td>
+        	<%= link_to 'Edit', {:controller => "categorynodes",:action => "edit", :id => categorynode.id} %>
+        </td>
+        <td>
+        	<%= link_to 'Destroy', categorynode, :confirm => 'Are you sure?', :method => :delete %>
+        </td>
+      </tr>
+      <% end %>
+    <% end %>
+  </table>
 </br>
-<% end %>
 
-<!-- 
-<%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'Back', categories_path %> -->
+<%= link_to 'New', {:controller => "categorynodes",:action => "new", :category_id => @category.id} %>
+<%= link_to 'Back', categories_path %>

@@ -106,6 +106,7 @@ class ProductsController < ApplicationController
         sum += c.grades 
       end   
       @average = sum / @comments.size
+      @average = format("%.2f", @average) 
     end
     @average = format("%.2f", @average)
 

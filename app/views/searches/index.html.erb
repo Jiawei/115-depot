@@ -5,9 +5,8 @@
         <div>
           <span> <%= category.title %> </span>
           <% @categorynodes.each do |categorynode| %>
-            <% if categorynode.parent == category.title %>
-              <%= link_to categorynode.title, {:controller => "categories", :action => "index" ,:cate => categorynode.title} %>
-    
+            <% if categorynode.category_id == category.id  %>
+              <%= link_to categorynode.title, {:controller => "categories", :action => "show_category" ,:cate => categorynode.title} %>    
             <% end %>
           <% end %>
         </div>
