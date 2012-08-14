@@ -162,7 +162,6 @@ body {
 
 /* An entry in the store catalog */
 
-
 #store  .entry {
   margin-left: 210px;
   overflow: auto;
@@ -241,6 +240,9 @@ body {
 
 /* START:cartmain */
 /* Styles for the cart in the main page */
+#store .autoChangeQuantity {
+  visibility: hidden;	
+}
 
 #store .cart_title {
   font-size: 16pt;
