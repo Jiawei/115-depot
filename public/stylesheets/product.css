@@ -26,3 +26,47 @@
 	float: right;
 	margin-left: 20px;
 }
+
+#product .entry{
+	margin-top: 40px; 
+	height: 100px;
+}
+
+#product .list_comment {
+	float: left;
+	margin-top: 40px;
+	margin-bottom: 50px;
+	margin-left: 25px;
+	border: 2px solid 	#FFFFCE;
+}
+
+#product .each_comment {
+	margin-top: 3px;
+}
+
+#product .list_comment p{
+	margin-bottom: 5px; 
+	margin-top: 0px;
+	margin-left: 0px;
+}
+
+#product .user{
+	background: #E8FFC4;
+	font-size: 12px;
+	width: 110px;
+	text-align: left;
+}
+
+#product .list_comment th{
+	background: #E8FFC4;
+	font-size: 12px;
+	padding-right: 25px;
+	text-align: left;
+}
+
+
+
+#product .list_comment td{
+	font-size: 12px;
+
+}

@@ -3,11 +3,6 @@
   	<%= @product.title%>
   </h1>
   <%= image_tag( @product.image_url) %>
- <p>
-    <b>Price:</b>
-    <%= number_to_currency(@product.price, :separator => '.', :delimiter => ',') %>
-  </p>
-
   <p>
     <b>Category:</b>
     <%= @product.categorynode_name %>
@@ -25,35 +20,45 @@
 
   </p>
 
-  <div class="list_comment">
-    <p>
-    <b>Comment(<%= @comments.size %>): </b>
-    </p>
-    <% @comments.each do |comment| %>
-      <div class="each_comment">
-        <p>
-          <b>User:</b>
-          <%= User.find(comment.user_id).name %>
-        </p>
-
-        <p>
-          <b>Content:</b>
-          <%= comment.content %>
-        </p>
-
-        <p>
-          <b>Grades:</b>
-          <%= comment.grades %>
-        </p>
-      </div>
-      <% end %>
-      <div class="entry">
+  <div class="entry">
         <div class="price_line" >
           <span class="price"><%= number_to_currency(@product.price, :separator => '.', :delimiter => ',') %></span>
           <%= button_to t('.add_html'), line_items_path(:product_id => @product),
             :remote => true, :class => "btn_buy", :onclick => "addToCart("+session[:user_id].to_s+")" %>
         </div>
       </div>
+
+  <div class="list_comment">
+    <p>
+    <b>Comment(<%= @comments.size %>): </b>
+    </p>
+    <% @comments.each do |comment| %>
+      <table class="each_comment">
+        <tr>
+        <th class="user">
+          <b>User:</b>
+          <%= User.find(comment.user_id).name %>
+        </th>
+
+        <th>
+          <b>Grades:</b>
+          <%= comment.grades %>
+        </th> 
+
+        <th>
+          <b>Creat time:</b>
+          <%= comment.created_at %>
+        </th> 
+        </tr>
+        <tr>
+        <td>
+          <b>Content:</b>
+          <%= comment.content %>
+        </td>
+        </tr>
+      </div>
+      <% end %>
+      
   </div>
 
   
