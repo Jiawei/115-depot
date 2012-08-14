@@ -7,6 +7,7 @@ Depot::Application.routes.draw do
   
   resources :line_items do
     put :change_num, :on => :member
+  end
 
   
   resources :category_nodes
