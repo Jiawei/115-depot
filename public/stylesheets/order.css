@@ -1,0 +1,156 @@
+#orders {
+	margin-left: 35px;
+}
+
+#orders h2{
+	width: 900px;
+}
+
+#orders .list{
+  width: 903px;
+  background: #F4F4F4;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-bottom: 5px 
+}
+
+#orders .orderlist b{
+	padding-left: 50px;
+	padding-right: 50px;
+}
+
+#orders .each_order{
+  overflow: hidden;
+	border: 1px solid   #8ECFDA;
+	margin-bottom: 20px;
+  width: 900px;
+  background: #E7F5F6;
+}
+
+#orders .each_order .up{
+  border-bottom: 1px solid  #8ECFDA;
+}
+#orders .each_order span{
+  padding-left: 9px;
+}
+
+#orders .each_order p{
+	text-align: left;
+	margin-bottom: 20px;
+}
+
+#orders .each_item{
+  float: left;
+  width: 900px;
+  height: 100px;
+  padding-bottom: 10px;
+  padding-top: 5px;
+  
+}
+
+#orders .each_item img{
+  float: left;
+  max-height: 90px;
+  min-width: 70px;
+  margin: 10px;
+}
+
+#orders .each_item .title{
+  font-family: Arial;
+  text-align: center;
+	padding: 0px;
+	margin-top: 40px;
+	margin-left: 10px;
+  margin-right: 10px;
+	float: left;
+	border-bottom: 0px;
+  width: 250px;
+}
+
+#orders .each_item .price{
+  font-family: Arial;
+  text-align: center;
+  padding: 0px;
+  margin-top: 40px;
+  margin-left: 10px;
+  margin-right: 10px;
+  float: left;
+  border-bottom: 0px;
+  width: 50px;
+}
+
+#orders .each_item .quentity{
+  font-family: Arial;
+  text-align: center;
+  padding: 0px;
+  margin-top: 40px;
+  margin-left: 10px;
+  margin-right: 10px;
+  float: left;
+  border-bottom: 0px;
+  width: 60px;
+}
+
+#orders .each_item .total{
+  font-family: Arial;
+  text-align: center;
+  padding: 0px;
+  margin-top: 40px;
+  margin-left: 10px;
+  margin-right: 10px;
+  float: left;
+  border-bottom: 0px;
+  width: 80px;
+}
+
+#orders .each_item .state{
+  font-family: Arial;
+  text-align: center;
+  padding: 0px;
+  margin-top: 40px;
+  margin-left: 10px;
+  margin-right: 20px;
+  float: left;
+  width: 100px;
+  border-bottom: 0px;
+}
+
+#orders .each_item .button{
+  font-family: Arial;
+  text-align: center;
+  padding: 0px;
+  margin-top: 40px;
+  margin-left: 10px;
+  margin-right: 10px;
+  float: left;
+  border-bottom: 0px;
+}
+
+/*#store .line_item .line_item_img {
+  float: left;
+  padding: 10px;
+}
+
+#store .line_item .line_item_img img {
+  max-height: 70px;
+  min-width: 55px;
+}
+
+#store .line_item .line_item_title {
+  float: left;
+  width: 275px;
+  padding-top: 35px;
+}
+
+#store .line_item .line_item_number {
+  float: left;
+  width: 110px;
+  text-align: center;
+  padding-top: 35px;
+}
+
+#store .line_item .quantity input {
+  width: 30px;
+  text-align: center;
+}
+*/

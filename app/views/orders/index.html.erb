@@ -1,22 +1,36 @@
-<h2>Listing orders</h2>
+<div id="orders">
+  <h2>My Orders</h2>
+  <div class="list">
+  		<b style = "margin-left: 150px; margin-right: 150px;"> Book </b>
+  		<b style = "margin-left: 35px; margin-right: 25px;"> Price </b>
+  		<b style = "margin-right: 35px;"> Quentity </b>
+  		<b style = "margin-right: 70px;"> Total </b>
+  		<b style = "margin-right: 100px;"> State </b>
+  		<b style = "margin-right: 10px;"> Do </b>
+  </div>
 
-<% @orders.each do |order| %>
-	<% if order.seller_id == session[:user_id] || order.customer_id == session[:user_id] %>
-		<table>
-			<tr>
-				<th>Order id</th>
+  <div class="orderlist">
+    <% @orders.each do |order| %>
+	  <% if order.seller_id == session[:user_id] || order.customer_id == session[:user_id] %>
+	    <div class="each_order">
+	      <div class="up">
+	        <span> Order id: <%= order.id %> </span> 
+	        <span> Create Time: <%= order.created_at %> </span>
+	        <span style = "padding-right: 160px;"><%= link_to 'Show', order %></span>
+		    <% if order.seller_id == session[:user_id] && order.state == "ordered" %>
+	          <%= button_to 'deliver goods', {:controller => "orders", :action => "ship", :id => order.id}%>
+		    <% end %>
+		  </div>
+<!-- 			<tr>
 				<th>Name</th>
 				<th>Address</th>
 				<th>Email</th>
 				<th>Pay type</th>
 				<th>State</th>
-				<th></th>
-				<th></th>
-				<th></th>
 			</tr>
 		
 			<tr>
-				<td><%= order.id %></td>
+				<td></td>
 				<td><%= order.name %></td>
 				<td><%= order.address %></td>
 				<td><%= order.email %></td>
@@ -28,31 +42,34 @@
 						<%= button_to 'deliver goods', {:controller => "orders", :action => "ship", :id => order.id}%>
 					<% end %>
 				</td>
-			</tr>
-		
-		</table>
-		
-		<p>
-			<% LineItem.where(:order_id => order.id).each do |line_item| %>
-				<div class="<%= cycle("odd line_item", "even line_item") %>">
-				<div class="line_item_img"><%= image_tag(line_item.product.image_url) %></div>
-				<div class="line_item_title"><%= line_item.product.title %></div>
-				<div class="line_item_number"><%= line_item.product.price %></div>
-				<div class="line_item_number quantity"><%= line_item.quantity %></div>
-				<div class="line_item_number total_price"><%= number_to_currency(line_item.total_price) %></div>
-				<div class="line_item_number"><%= User.find(Product.find(line_item.product_id).seller_id).name %></div>
-				</div>
-				<div>
-					<% if order.customer_id == session[:user_id] && order.state == "shipped" %>
-							<%= button_to 'post a comment', {:controller => "comments", :action => "new", :id => line_item.product_id } %> 
-					<% end %>
-				</div>
-			<% end %>
-	
-		</p>
-	<% end %>
-<% end %>
+			</tr> -->
+			
+		  <% LineItem.where(:order_id => order.id).each do |line_item| %>
+		    <div class="each_item">
+		      <%= image_tag(line_item.product.image_url) %>
+		      <div class="title"> <%= line_item.product.title %> </div>
+			  <div class="price"> <%= line_item.product.price %> </div>
+			  <div class="quentity"> <%= line_item.quantity %> </div>
+			  <div class="total"> <%= number_to_currency(line_item.total_price) %></div>
+			  <div class="state"> <%= order.state %>
+			  	<!--  <%= User.find(Product.find(line_item.product_id).seller_id).name %> --></div>
+			  <div class="button"> 
+			    <% if order.customer_id == session[:user_id] && order.state == "shipped" %>
+			      <%= button_to 'post a comment', {:controller => "comments", :action => "new", :id => line_item.product_id } %> 
+		        <% end %>
+			  </div>
+		    </div>
+		  <% end %>
+		</div>
+	  <% end %>    
+    <% end %>	
+  </div>
+</div>			
+			
+
 
 <p>
 	<%= will_paginate @orders %>
 </p>
+  
+
