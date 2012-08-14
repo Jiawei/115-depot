@@ -29,8 +29,9 @@
 	</head>
 
 	<body id="store">
+	  <div id="combox">
 		<div id="banner">
-			<%= image_tag("logo.png") %>
+			
 			<%= @page_title || t('.title') %>
 
 			<!--locale-->
@@ -133,7 +134,6 @@
 		</div>
 		
 		<div id="cart_notice" class="cart_notice display">
-
 			<% if session[:cart_id] != nil %>
 			<div id="add_notice">
 				<div id="cart_img">
@@ -148,5 +148,28 @@
 			</div>
 			<% end %>
 		</div>
+		<div id="notice_both">
+			<% if session[:user_id] && User.find(session[:user_id]).usertype == "seller" %>
+				<% orders = Order.where(:seller_id => session[:user_id], :notice => "new" ) %>
+				<% unless orders.empty? %>
+					<div id="order_notice" class="play">
+						<%= link_to "You have #{orders.size} new orders", {:controller=>"orders", :action=>"check"} %>
+					</div>
+				<% end %>
+			<% end %>
+			
+			<% if session[:user_id] %>
+				<% orders = Order.where(:customer_id => session[:user_id], :notice => "delivered" ) %>
+				<% unless orders.empty? %>
+					<div id="order_notice_2" class="play">
+						<%= link_to "#{orders.size} orders delivered", {:controller=>"orders", :action=>"customer_check"} %>
+					</div>
+				<% end %>
+			<% end %>
+		</div>
+	</div>
+	<div id="footer">
+		<img src="images/footer_bg.gif" />
+	</div>
 	</body>
 </html>

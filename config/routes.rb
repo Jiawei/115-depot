@@ -19,6 +19,8 @@ Depot::Application.routes.draw do
   resources :searches
   resources :comments
   
+  get "orders/check"
+  get "orders/customer_check"
   get "help/index"
   get "help/register"
   get "help/login"
