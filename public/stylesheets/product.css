@@ -42,6 +42,7 @@
 
 #product .each_comment {
 	margin-top: 3px;
+	float: left;
 }
 
 #product .list_comment p{
