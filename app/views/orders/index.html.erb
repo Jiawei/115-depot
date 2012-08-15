@@ -19,7 +19,7 @@
 	      <div class="up">
 	        <span> Order id: <%= order.id %> </span> 
 	        <span> Create Time: <%= order.created_at %> </span>
-	        <span style = "padding-right: 160px;"><%= link_to 'Show', order %></span> 
+	        <span style = "padding-right: 160px;"><%= link_to 'Show order details', order %></span> 
 		  </div>
 		  
 		  <% LineItem.where(:order_id => order.id).each do |line_item| %>
@@ -53,7 +53,7 @@
 	      <div class="up">
 	        <span> Order id: <%= order.id %> </span> 
 	        <span> Create Time: <%= order.created_at %> </span>
-	        <span style = "padding-right: 160px;"><%= link_to 'Show', order %></span>
+	        <span style = "padding-right: 160px;"><%= link_to 'Show order details', order %></span>
 		    <% if order.seller_id == session[:user_id] && order.state == "ordered" %>
 	          <%= button_to 'deliver goods', {:controller => "orders", :action => "ship", :id => order.id}%>
 		    <% end %>
@@ -79,10 +79,39 @@
 		</div>
 	  <% end %>
 	<% end %>	
+	
+	<% if User.find(session[:user_id]).usertype == 'admin' %>
+		 <% @orders.each do |order| %>  
+		    <div class="each_order">
+		      <div class="up">
+		        <span> Order id: <%= order.id %> </span> 
+		        <span> Create Time: <%= order.created_at %> </span>
+		        <span style = "padding-right: 160px;"><%= link_to 'Show order details', order %></span>
+			    <% if order.seller_id == session[:user_id] && order.state == "ordered" %>
+		          <%= button_to 'deliver goods', {:controller => "orders", :action => "ship", :id => order.id}%>
+			    <% end %>
+			  </div>
+			  
+			  <% LineItem.where(:order_id => order.id).each do |line_item| %>
+			    <div class="each_item">
+			      <%= image_tag(line_item.product.image_url) %>
+			      <div class="title"> <%= line_item.product.title %> </div>
+				  <div class="price"> <%= line_item.product.price %> </div>
+				  <div class="quentity"> <%= line_item.quantity %> </div>
+				  <div class="total"> <%= number_to_currency(line_item.total_price) %></div>
+				  <div class="state"> <%= order.state %>
+				  	<!--  <%= User.find(Product.find(line_item.product_id).seller_id).name %> --></div>
+				  <div class="button"> 
+				    <%= button_to 'post a comment', {:controller => "comments", :action => "new", :id => line_item.product_id } %> 
+				  </div>
+			    </div>
+			  <% end %>
+			  
+			</div>
+		<% end %>	
+	<% end %>
   </div>
 </div>			
-			
-
 
 <p>
 	<%= will_paginate @orders %>
