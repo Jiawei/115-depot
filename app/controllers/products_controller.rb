@@ -25,7 +25,6 @@ class ProductsController < ApplicationController
   # GET /products/new.xml
   def new
     @product = Product.new
-    @categories = Categorynode.all.collect {|c| [c.title, c.title] }
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @product }
@@ -43,8 +42,7 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(params[:product])
     @product.seller_id = session[:user_id]
-
-
+    
     respond_to do |format|
       if @product.save
         format.html { redirect_to(@product, :notice => 'Product was successfully created.') }

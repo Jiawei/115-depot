@@ -1,28 +1,11 @@
 <h1>New comment</h1>
 
 <div class="add_comment">
-    <%= form_for(@comment) do |f| %>
-      <p>
-        <b>User:</b>
-        <%= @user_name %>
-      </p>
-      <p>
-        <b>Product:</b>
-        <%= @product_name %>
-      </p>
-
-      <div class="field">
-      <%= f.label :content %><br />
-      <%= f.text_area :content %>
-      </div>
-      <div class="field">
-      <%= f.label :grades %><br />
-      <%= f.text_field :grades %>
-      </div>
-      <div class="actions">
-      <%= f.submit %>
-      </div>
-    <% end %>
-  </div>
+	<fieldset>
+		<legend><%= "Comment" %></legend>
+		<%= render 'form' %>
+	</fieldset>
+   
+</div>
 
 

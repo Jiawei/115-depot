@@ -47,10 +47,10 @@ class CommentsController < ApplicationController
     @comment = Comment.new(params[:comment])
     @comment.product_id = session[:product_id] 
     @comment.user_id = session[:user_id]
-
+    
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to(@comment, :notice => 'Comment was successfully created.') }
+        format.html { redirect_to detail_product_url(:id => session[:product_id])}
         format.xml  { render :xml => @comment, :status => :created, :location => @comment }
       else
         format.html { render :action => "new" }
