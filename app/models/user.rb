@@ -18,7 +18,7 @@ require 'digest/sha2'
 
 class User < ActiveRecord::Base
 	has_one :carts
-	USER_TYPES = ["customer", "seller"];
+	USER_TYPES = ["customer", "seller", "admin"];
   validates :name, :presence => true, :uniqueness => true
   validates_format_of :email, :with => %r/\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/
   validates :password, :confirmation => true
