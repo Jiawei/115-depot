@@ -4,13 +4,13 @@ class Product < ActiveRecord::Base
 	belongs_to :users
 	has_many :comments
 	has_many :orders, :through => :line_items
-	# validates :title, :description, :image_url, :categorynode_name, :presence => true
-	# validates :price, :numericality => {:greater_than_or_equal_to => 0.01}
-	# validates :title, :uniqueness => true
-	# validates :image_url, :format => {
-		# :with	=> %r{\.(gif|jpg|png)$}i,
-		# :message => 'must be a URL for GIF, JPG or PNG image.'
-	# }
+	validates :title, :description, :image_url, :categorynode_name, :presence => true
+	validates :price, :numericality => {:greater_than_or_equal_to => 0.01}
+	validates :title, :uniqueness => true
+	validates :image_url, :format => {
+		:with	=> %r{\.(gif|jpg|png)$}i,
+		:message => 'must be a URL for GIF, JPG or PNG image.'
+	}
 	
   file_column :image
 	
