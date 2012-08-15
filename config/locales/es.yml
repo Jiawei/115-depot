@@ -105,5 +105,7 @@ es:
       add_html:       "A&ntilde;adir al Carrito"
 
   categories:
+    show_category:
+      add_html:       "A&ntilde;adir al Carrito"
     index:
       add_html:       "A&ntilde;adir al Carrito"
