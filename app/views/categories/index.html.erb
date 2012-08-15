@@ -1,4 +1,7 @@
-<p id="notice"><%= notice %></p>
+<% if notice %>
+<p id="notice" ><%= notice %></p>
+<% end %>
+<h2>Category</h2>
 <table>
   <% @categories.each do |category| %>
     <tr>
