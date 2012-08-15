@@ -19,4 +19,5 @@
 		</div>
 		<div class="line_item_number total_price"><%= number_to_currency(line_item.total_price) %></div>
 		<div class="line_item_number"><%= User.find(Product.find(line_item.product_id).seller_id).name %></div>
+		<div class="line_item_number" onmouseover="show_del()" onmouseout="hide_del()"><%= link_to 'delete', line_item, :confirm => 'Are you sure?', :method => :delete %></div>
 	</div>

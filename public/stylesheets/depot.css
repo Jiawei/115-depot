@@ -141,7 +141,6 @@ body #combox {
 /* Styles for main page */
 #main {
   background: white;
-  min-height: 300px;
 }
 
 #main h3{
@@ -324,7 +323,7 @@ body #combox {
 }
 
 #store .line_item {
-  float: left;
+
   width: 900px;
   height: 90px;
   margin-top: 20px;
@@ -374,6 +373,10 @@ body #combox {
   font-size: 14px;
 }
 
+#store #btn_line {
+  height: 80px;	
+}
+
 .btn_cart {
   border: none;
   float: right;
@@ -392,6 +395,7 @@ body #combox {
   float: left;
   background-color: #999999;
   margin: 20px;
+  margin-left: 0;
 }
 
 /* END:cartmain */
@@ -602,7 +606,7 @@ body #combox {
 
 #footer{
 	margin: 0 auto;
-	margin-top: 80px;
+	margin-top: 40px;
 	max-height: 125px;
 	background:url(../images/footer_rbg.png) left bottom repeat-x;
 	text-align: center;
