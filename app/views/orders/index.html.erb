@@ -1,5 +1,5 @@
 <div id="orders">
-  <h2>My Orders</h2>
+  <h2>Your Orders</h2>
   <div class="list">
   		<b style = "margin-left: 150px; margin-right: 150px;"> Book </b>
   		<b style = "margin-left: 35px; margin-right: 25px;"> Price </b>
@@ -21,29 +21,6 @@
 	          <%= button_to 'deliver goods', {:controller => "orders", :action => "ship", :id => order.id}%>
 		    <% end %>
 		  </div>
-<!-- 			<tr>
-				<th>Name</th>
-				<th>Address</th>
-				<th>Email</th>
-				<th>Pay type</th>
-				<th>State</th>
-			</tr>
-		
-			<tr>
-				<td></td>
-				<td><%= order.name %></td>
-				<td><%= order.address %></td>
-				<td><%= order.email %></td>
-				<td><%= order.pay_type %></td>
-				<td><%= order.state %></td>
-				<td><%= link_to 'Show', order %></td>
-				<td>
-					<% if order.seller_id == session[:user_id] && order.state == "ordered" %>
-						<%= button_to 'deliver goods', {:controller => "orders", :action => "ship", :id => order.id}%>
-					<% end %>
-				</td>
-			</tr> -->
-			
 		  <% LineItem.where(:order_id => order.id).each do |line_item| %>
 		    <div class="each_item">
 		      <%= image_tag(line_item.product.image_url) %>

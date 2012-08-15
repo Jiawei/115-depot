@@ -601,8 +601,9 @@ body #combox {
 
 
 #footer{
-
 	margin: 0 auto;
+	margin-top: 30px;
+	max-height: 125px;
 	background:url(../images/footer_rbg.png) left bottom repeat-x;
 	text-align: center;
 }
