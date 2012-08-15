@@ -1,12 +1,12 @@
-
+<% if flash[:alert] %>
+	  <p id="notice"><%= flash[:alert] %></p>
+    <% end %>
 
 <div class="login">
 	<div class="img">
 	<%= image_tag("BookStore.jpg") %>
     </div>
-    <% if flash[:alert] %>
-	  <p id="notice"><%= flash[:alert] %></p>
-    <% end %>
+    
   <div class="box">
   <%= form_tag do %>
 	<fieldset>
