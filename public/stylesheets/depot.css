@@ -19,6 +19,14 @@ body #combox {
   display: none;
 }
 
+.unvisible {
+  visibility: hidden;
+}
+
+.visible {
+  visibility: visible;
+}
+
 .suggest {
   position: fixed;
   left: 500px;

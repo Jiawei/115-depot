@@ -23,3 +23,13 @@ function auto_change_quantity(id){
 	var button = labels[4];
 	button.click();
 }
+
+function show_del(id){
+	var show_del_btn = document.getElementById("line_item_"+id);
+	show_del_btn.className = "line_item_number visible";
+}
+
+function hide_del(id){
+	var hide_del_btn = document.getElementById("line_item_"+id);
+	hide_del_btn.className = "line_item_number unvisible";
+}
