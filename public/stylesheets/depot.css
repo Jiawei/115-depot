@@ -617,3 +617,8 @@ body #combox {
 	background:url(../images/footer_rbg.png) left bottom repeat-x;
 	text-align: center;
 }
+
+.content textarea{
+  width: 400px; 
+  height: 100px;
+}
