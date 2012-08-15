@@ -6,7 +6,7 @@ body {
 
 body #combox {
   width: 980px;
-  min-height: 600px;
+  min-height: 800px;
   margin: auto;	
   color:#000;
 }
@@ -85,22 +85,22 @@ body #combox {
 }
 
 #product_list .list_image {
-  width:        60px;
-  height:       70px;
+  width: 60px;
+  height: 70px;
 }
 
 #product_list .list_description {
-  width:        60%;
+  width: 60%;
 }
 
 #product_list .list_description dl {
-        margin: 0;
+  margin: 0;
 }
 
 #product_list .list_description dt {
-	color:        #244;
+	color: #244;
 	font-weight:  bold;
-	font-size:    larger;
+	font-size: larger;
 }
 
 #product_list .list_description dd {
@@ -133,7 +133,6 @@ body #combox {
   color: #282;
   text-align: center;
   height:80px;  
- 
 }
 
 #banner img {
@@ -162,13 +161,12 @@ body #combox {
 }
 
 #main h2{
-	border-bottom: 3px dotted #7777DD;
-
-    color: #222266;
-    font: 200% sans-serif;
+  border-bottom: 3px dotted #7777DD;
+  color: #222266;
+  font: 200% sans-serif;
 }
 #main h4{
-	margin-left: 10px;
+  margin-left: 10px;
   margin-top: 0px; 
   padding-top: 15px;
   font: 150% sans-serif;
@@ -616,7 +614,7 @@ body #combox {
 	margin: 0 auto;
 	margin-top: 40px;
 	max-height: 125px;
-	background:url(../images/footer_rbg.png) left bottom repeat-x;
+	background:url(../../images/footer_rbg.png) left bottom repeat-x;
 	text-align: center;
 }
 

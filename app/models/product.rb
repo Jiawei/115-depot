@@ -25,7 +25,16 @@ class Product < ActiveRecord::Base
 	# This is search
 	def self.search(query)
 	  if query
-	    find(:all, :conditions => ['title LIKE ?',"%#{query}%"])
+	    query = query.split(" ")
+	    conditions = []
+	    query.each do |q|
+	      conditions << ['title LIKE ?', "%#{q}%"]
+	      conditions << ['description LIKE ?', "%#{q}%"]
+	      conditions << ['categorynode_name LIKE ?', "%#{q}%"]
+	    end
+	    find(:all, :conditions => [conditions.transpose.first.join(' OR '), *conditions.transpose.last])
+	  else 
+	    find(:all)
 	  end
 	end
 
