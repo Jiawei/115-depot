@@ -6,6 +6,7 @@ body {
 
 body #combox {
   width: 980px;
+  min-height: 600px;
   margin: auto;	
   color:#000;
 }
@@ -600,7 +601,7 @@ body #combox {
 
 
 #footer{
-	height: 107px;
+
 	margin: 0 auto;
 	background:url(../images/footer_rbg.png) left bottom repeat-x;
 	text-align: center;
