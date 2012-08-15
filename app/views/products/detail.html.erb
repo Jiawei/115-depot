@@ -17,11 +17,7 @@
   <p>
     <b>Average Grade :</b>
     <%= @average %>
-  </p>
 
-  <p>
-    <b>Seller:</b>
-    <%= User.find(@product.seller_id).name %>
   </p>
 
   	<div class="entry">
@@ -60,10 +56,10 @@
           <%= comment.content %>
         </td>
         </tr>
-     
-     <%end%>
       </table>
+   
+      <% end %>  
       </div>
-    
+
 </div>
 
