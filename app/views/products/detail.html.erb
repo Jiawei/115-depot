@@ -20,13 +20,13 @@
 
   </p>
 
-  <div class="entry">
+  	<div class="entry">
         <div class="price_line" >
           <span class="price"><%= number_to_currency(@product.price, :separator => '.', :delimiter => ',') %></span>
           <%= button_to t('.add_html'), line_items_path(:product_id => @product),
             :remote => true, :class => "btn_buy", :onclick => "addToCart("+session[:user_id].to_s+")" %>
         </div>
-      </div>
+    </div>
 
   <div class="list_comment">
     <p>
@@ -56,11 +56,10 @@
           <%= comment.content %>
         </td>
         </tr>
+     
+     <%end%>
+      </table>
       </div>
-      <% end %>
-      
-  </div>
-
-  
+    
 </div>
 
