@@ -1,7 +1,7 @@
 	<% if line_item == @current_item %>
 	<div id="current_item">
 	<% else %>
-	<div class="<%= cycle("odd line_item", "even line_item") %>">
+	<div class="<%= cycle("odd line_item", "even line_item") %>" onclick="show_del(<%= line_item.id.to_s %>)" onmouseover="show_del(<%= line_item.id.to_s %>)" onmouseout="hide_del(<%= line_item.id.to_s %>)" >
 	<% end %>
 		<div class="line_item_img"><%= image_tag(line_item.product.image_url) %></div>
 		<div class="line_item_title"><%= line_item.product.title %></div>
@@ -19,5 +19,5 @@
 		</div>
 		<div class="line_item_number total_price"><%= number_to_currency(line_item.total_price) %></div>
 		<div class="line_item_number"><%= User.find(Product.find(line_item.product_id).seller_id).name %></div>
-		<div class="line_item_number" onmouseover="show_del()" onmouseout="hide_del()"><%= link_to 'delete', line_item, :confirm => 'Are you sure?', :method => :delete %></div>
+		<div class="line_item_number unvisible" id="line_item_<%= line_item.id.to_s %>" ><%= link_to 'delete', line_item, :confirm => 'Are you sure?', :method => :delete %></div>
 	</div>

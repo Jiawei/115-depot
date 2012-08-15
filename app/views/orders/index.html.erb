@@ -10,16 +10,16 @@
   </div>
 
   <div class="orderlist">
+  	<% if @orders.where(:seller_id => session[:user_id]).size != 0 %>
+  	  <h3>Sell Orders</h3>
+  	<% end %>
     <% @orders.each do |order| %>
 	  <% if order.seller_id == session[:user_id] %>
 	    <div class="each_order">
 	      <div class="up">
 	        <span> Order id: <%= order.id %> </span> 
 	        <span> Create Time: <%= order.created_at %> </span>
-	        <span style = "padding-right: 160px;"><%= link_to 'Show', order %></span>
-		    <% if order.seller_id == session[:user_id] && order.state == "ordered" %>
-	          <%= button_to 'deliver goods', {:controller => "orders", :action => "ship", :id => order.id}%>
-		    <% end %>
+	        <span style = "padding-right: 160px;"><%= link_to 'Show', order %></span> 
 		  </div>
 		  
 		  <% LineItem.where(:order_id => order.id).each do |line_item| %>
@@ -32,8 +32,8 @@
 			  <div class="state"> <%= order.state %>
 			  	<!--  <%= User.find(Product.find(line_item.product_id).seller_id).name %> --></div>
 			  <div class="button"> 
-			    <% if order.customer_id == session[:user_id] && order.state == "shipped" %>
-			      <%= button_to 'post a comment', {:controller => "comments", :action => "new", :id => line_item.product_id } %> 
+			    <% if order.seller_id == session[:user_id] && order.state == "ordered" %>
+	              <%= button_to 'deliver goods', {:controller => "orders", :action => "ship", :id => order.id}%>
 		        <% end %>
 			  </div>
 		    </div>
@@ -43,6 +43,10 @@
 	  <% end %>  
     <% end %>
     
+    
+    <% if @orders.where(:customer_id => session[:user_id]).size != 0 %>
+	    <h3>Purchase Orders</h3>
+  	<% end %>
     <% @orders.each do |order| %>  
 	  <% if order.customer_id == session[:user_id] %>
 	    <div class="each_order">
