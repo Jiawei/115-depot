@@ -4,11 +4,15 @@ class CartsController < ApplicationController
   # GET /carts
   # GET /carts.xml
   def index
-    @carts = Cart.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @carts }
+    if User.find(session[:user_id]).usertype != "admin"
+      redirect_to store_url, :notice => "Permission denied"
+    else
+      @carts = Cart.all
+  
+      respond_to do |format|
+        format.html # index.html.erb
+        format.xml  { render :xml => @carts }
+      end
     end
   end
 
@@ -17,16 +21,20 @@ class CartsController < ApplicationController
   def show
 	  begin
    	  @cart = Cart.find(params[:id])
-	  rescue ActiveRecord::RecordNotFound
-	    logger.error "Attempt to access invalid cart #{params[:id]}"
-	    redirect_to store_url, :notice => 'Invalid cart'
-
-	  else 
-      respond_to do |format|
-        format.html # show.html.erb
-      	format.xml  { render :xml => @cart }
-      end
-	  end
+   	rescue ActiveRecord::RecordNotFound
+        logger.error "Attempt to access invalid cart #{params[:id]}"
+        redirect_to store_url, :notice => 'Invalid cart'
+  
+    else
+     	if session[:user_id] == nil || @cart.user_id != session[:user_id] && User.find(session[:user_id]).usertype != "admin"
+        redirect_to store_url, :notice => "Permission denied"
+      else
+          respond_to do |format|
+            format.html # show.html.erb
+          	format.xml  { render :xml => @cart }
+          end
+    	  end
+    	end
   end
 
   # GET /carts/new
@@ -42,7 +50,11 @@ class CartsController < ApplicationController
 
   # GET /carts/1/edit
   def edit
-    @cart = Cart.find(params[:id])
+    if session[:user_id] == nil || @cart.user_id != session[:user_id] && User.find(session[:user_id]).usertype != "admin"
+      redirect_to store_url, :notice => "Permission denied"
+    else
+      @cart = Cart.find(params[:id])
+    end
   end
 
   # POST /carts
@@ -64,15 +76,19 @@ class CartsController < ApplicationController
   # PUT /carts/1
   # PUT /carts/1.xml
   def update
-    @cart = Cart.find(params[:id])
-
-    respond_to do |format|
-      if @cart.update_attributes(params[:cart])
-        format.html { redirect_to(@cart, :notice => 'Cart was successfully updated.') }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @cart.errors, :status => :unprocessable_entity }
+    if session[:user_id] == nil || @cart.user_id != session[:user_id] && User.find(session[:user_id]).usertype != "admin"
+      redirect_to store_url, :notice => "Permission denied"
+    else
+      @cart = Cart.find(params[:id])
+  
+      respond_to do |format|
+        if @cart.update_attributes(params[:cart])
+          format.html { redirect_to(@cart, :notice => 'Cart was successfully updated.') }
+          format.xml  { head :ok }
+        else
+          format.html { render :action => "edit" }
+          format.xml  { render :xml => @cart.errors, :status => :unprocessable_entity }
+        end
       end
     end
   end
