@@ -133,7 +133,6 @@ body #combox {
   color: #282;
   text-align: center;
   height:80px;  
- 
 }
 
 #banner img {
@@ -162,13 +161,12 @@ body #combox {
 }
 
 #main h2{
-	border-bottom: 3px dotted #7777DD;
-
-    color: #222266;
-    font: 200% sans-serif;
+  border-bottom: 3px dotted #7777DD;
+  color: #222266;
+  font: 200% sans-serif;
 }
 #main h4{
-	margin-left: 10px;
+  margin-left: 10px;
   margin-top: 0px; 
   padding-top: 15px;
   font: 150% sans-serif;
