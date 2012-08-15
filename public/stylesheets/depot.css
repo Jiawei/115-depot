@@ -124,8 +124,8 @@ body #combox {
 /* START:mainlayout */
 
 #banner {
-	
-  	background:url(../images/header.png) 0 0 no-repeat;
+  margin-bottom: 20px;
+  background:url(../images/header.png) 0 0 no-repeat;
   padding-top: 10px;
   padding-bottom: 50px;
   border-bottom: 2px solid;
@@ -618,4 +618,9 @@ body #combox {
 	max-height: 125px;
 	background:url(../images/footer_rbg.png) left bottom repeat-x;
 	text-align: center;
+}
+
+.content textarea{
+  width: 400px; 
+  height: 100px;
 }

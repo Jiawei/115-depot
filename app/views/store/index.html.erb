@@ -1,19 +1,19 @@
-  <div class="side">
-    <h4>Category</h4>
-    <div id="my_menu" class="cate">
-        <% @categories.each do |category| %>
-        <div>
-          <span> <%= category.title %> </span>
-          <% @categorynodes.each do |categorynode| %>
-            <% if categorynode.category_id == category.id  %>
-              <%= link_to categorynode.title, {:controller => "categories", :action => "show_category" ,:cate => categorynode.title} %>
-    
-            <% end %>
-          <% end %>
-        </div>
-        <% end %>
-      </div>
-  </div>
+<div class="side">
+	<h4>Category</h4>
+	<div id="my_menu" class="cate">
+		<% @categories.each do |category| %>
+		<div>
+			<span> <%= category.title %> </span>
+			<% @categorynodes.each do |categorynode| %>
+			<% if categorynode.category_id == category.id  %>
+			<%= link_to categorynode.title, {:controller => "categories", :action => "show_category" ,:cate => categorynode.title} %>
+
+			<% end %>
+			<% end %>
+		</div>
+		<% end %>
+	</div>
+</div>
 
 <% if notice %>
 <h1 id="notice" ><%= notice %></h1>
@@ -21,21 +21,29 @@
 
 <h3><%= @name %></h3>
 
-<h1><%= t('.title_html') %></h1>
-<% @products.each do |product| %>
-  <% if product.seller_id != session[:user_id] %>
-  <div class="entry" >
-    <%= image_tag(product.image_url) %>
-    <%= link_to product.title, {:controller => "products", :action => "detail" ,:id => product.id } %>
-    
-    <div class="description"><%= sanitize(product.description) %></div>
+<div>
+	<h1><%= t('.title_html') %></h1>
+	<% @products.each do |product| %>
+	<% if product.seller_id != session[:user_id] %>
+	<div class="entry" >
+		<%= image_tag(product.image_url) %>
+		<%= link_to product.title, {:controller => "products", :action => "detail" ,:id => product.id } %>
 
-    <div class="price_line" >
-      <span class="price"><%= number_to_currency(product.price, :separator => '.', :delimiter => ',') %></span>
-      <%= button_to t('.add_html'), line_items_path(:product_id => product),
-        :remote => true, :class => "btn_buy", :onclick => "addToCart("+session[:user_id].to_s+")" %>
-    </div>
-  </div>
-  <% end %>
-<% end %>
+		<div class="description">
+			<%= sanitize(product.description) %>
+		</div>
+
+		<div class="price_line" >
+			<span class="price"><%= number_to_currency(product.price, :separator => '.', :delimiter => ',') %></span>
+			<%= button_to t('.add_html'), line_items_path(:product_id => product),
+			:remote => true, :class => "btn_buy", :onclick => "addToCart("+session[:user_id].to_s+")" %>
+		</div>
+	</div>
+	<% end %>
+	<% end %>
+
+	<p>
+		<%= will_paginate @products %>
+	</p>
+</div>
 

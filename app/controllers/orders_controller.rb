@@ -48,6 +48,7 @@ class OrdersController < ApplicationController
   # POST /orders
   # POST /orders.xml
   def create
+    flag = false
     cart = current_cart
     line_items = LineItem.where(:cart_id => cart.id)
     sellers_id = line_items.map {|l| Product.find(l.product_id).seller_id}
@@ -63,14 +64,24 @@ class OrdersController < ApplicationController
       @order.add_line_items_from_array(line_items_array)
       @order.state = "ordered"
       @order.notice = "new"
-      @order.save
-      Notifier.order_received(@order).deliver
-      Notifier.order_inform_seller(@order).deliver
+      
+      if @order.save
+        Notifier.order_received(@order).deliver
+        Notifier.order_inform_seller(@order).deliver
+        flag = true
+      else 
+        flag = false
+      end
     end
     
     respond_to do |format|
-      format.html { redirect_to(store_url, :notice => I18n.t('.thanks')) }
-      format.xml  { render :xml => @order, :status => :created, :location => @order }
+      if flag == true
+        format.html { redirect_to(store_url, :notice => I18n.t('.thanks')) }
+        format.xml  { render :xml => @order, :status => :created, :location => @order }
+      else 
+        format.html { render :action => "new" }
+        format.xml  { render :xml => @order.errors, :status => :unprocessable_entity }
+      end
     end
   end
 
