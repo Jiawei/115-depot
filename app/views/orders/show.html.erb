@@ -32,8 +32,24 @@
 
 <p>
 	<b>Products:</b>
-	<% LineItem.where(:order_id => @order.id).each do |l| %>
-		<%= render l %>
+	<% LineItem.where(:order_id => @order.id).each do |line_item| %>
+	<div class="orderlist">
+	<div class="each_order">
+		<div class="each_item">
+		    <%= image_tag(line_item.product.image_url) %>
+		    <div class="title"> <%= line_item.product.title %> </div>
+			<div class="price"> <%= line_item.product.price %> </div>
+			<div class="quentity"> <%= line_item.quantity %> </div>
+			<div class="total"> <%= number_to_currency(line_item.total_price) %></div>
+			<div class="state"> <%= @order.state %></div>
+			<div class="button"> 
+			    <% if @order.customer_id == session[:user_id] && @order.state == "shipped" %>
+			       <%= button_to 'post a comment', {:controller => "comments", :action => "new", :id => line_item.product_id } %> 
+		        <% end %>
+		    </div>
+		</div>
+	</div>
+	</div>
 	<% end %>
 </p>
 

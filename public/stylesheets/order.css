@@ -14,12 +14,12 @@
   margin-bottom: 5px 
 }
 
-#orders .orderlist b{
+.orderlist b{
 	padding-left: 50px;
 	padding-right: 50px;
 }
 
-#orders .each_order{
+.each_order{
   overflow: hidden;
 	border: 1px solid   #8ECFDA;
 	margin-bottom: 20px;
@@ -27,19 +27,19 @@
   background: #E7F5F6;
 }
 
-#orders .each_order .up{
+.each_order .up{
   border-bottom: 1px solid  #8ECFDA;
 }
-#orders .each_order span{
+.each_order span{
   padding-left: 9px;
 }
 
-#orders .each_order p{
+.each_order p{
 	text-align: left;
 	margin-bottom: 20px;
 }
 
-#orders .each_item{
+.each_item{
   float: left;
   width: 900px;
   height: 100px;
@@ -48,14 +48,14 @@
   
 }
 
-#orders .each_item img{
+.each_item img{
   float: left;
   max-height: 90px;
   min-width: 70px;
   margin: 10px;
 }
 
-#orders .each_item .title{
+.each_item .title{
   font-family: Arial;
   text-align: center;
 	padding: 0px;
@@ -67,7 +67,7 @@
   width: 250px;
 }
 
-#orders .each_item .price{
+.each_item .price{
   font-family: Arial;
   text-align: center;
   padding: 0px;
@@ -79,7 +79,7 @@
   width: 50px;
 }
 
-#orders .each_item .quentity{
+.each_item .quentity{
   font-family: Arial;
   text-align: center;
   padding: 0px;
@@ -91,7 +91,7 @@
   width: 60px;
 }
 
-#orders .each_item .total{
+.each_item .total{
   font-family: Arial;
   text-align: center;
   padding: 0px;
@@ -103,7 +103,7 @@
   width: 80px;
 }
 
-#orders .each_item .state{
+.each_item .state{
   font-family: Arial;
   text-align: center;
   padding: 0px;
@@ -115,7 +115,7 @@
   border-bottom: 0px;
 }
 
-#orders .each_item .button{
+.each_item .button{
   font-family: Arial;
   text-align: center;
   padding: 0px;
