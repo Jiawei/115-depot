@@ -57,9 +57,13 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(params[:product])
     @product.seller_id = session[:user_id]
+    puts "!!!!!!!!!!!!!!!!!!!!!!!!!1"
+    puts @product.image_relative_path
     
     respond_to do |format|
       if @product.save
+        @product.image_url = "/product/image/" + @product.image_relative_path
+        @product.save
         format.html { redirect_to(@product, :notice => 'Product was successfully created.') }
         format.xml  { render :xml => @product, :status => :created, :location => @product }
       else

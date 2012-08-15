@@ -1,42 +1,49 @@
 <fieldset>
-	
-<div class="depot_form" >
-	<%= form_for(@product) do |f| %>
-	  <% if @product.errors.any? %>
-	    <div id="error_explanation">
-	      <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
-	
-	      <ul>
-	      <% @product.errors.full_messages.each do |msg| %>
-	        <li><%= msg %></li>
-	      <% end %>
-	      </ul>
-	    </div>
-	  <% end %>
-	
-	  <div class="field">
-	    <%= f.label :title %><br />
-	    <%= f.text_field :title %>
-	  </div>
-	  <div class="field">
-	    <%= f.label :description %><br />
-	    <%= f.text_area :description %>
-	  </div>
-	  <div class="field">
-	    <%= f.label "Catagory Name" %><br />
-	    <%= f.select :categorynode_name, Categorynode.all.collect {|c| [c.title, c.title] } %>
-	  </div>
-	  <div class="field">
-	    <%= f.label :image_url %><br />
-    	<%= f.text_field :image_url %>
-	  </div>
-	  <div class="field">
-	    <%= f.label :price %><br />
-	    <%= f.text_field :price %>
-	  </div>
-	  <div class="actions">
-	    <%= f.submit %>
-	  </div>
-	<% end %>
-</div>
+
+	<div class="depot_form" >
+		<%= form_for(@product) do |f| %>
+		<% if @product.errors.any? %>
+		<div id="error_explanation">
+			<h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+			<ul>
+				<% @product.errors.full_messages.each do |msg| %>
+				<li>
+					<%= msg %>
+				</li>
+				<% end %>
+			</ul>
+		</div>
+		<% end %>
+
+		<div class="field">
+			<%= f.label "Title: " %>
+			<%= f.text_field :title %>
+		</div>
+		<div class="field">
+			<%= f.label "Description:" %>
+			<%= f.text_area :description %>
+		</div>
+		<div class="field">
+			<%= f.label "Catagory Name" %>
+			<%= f.select :categorynode_name, Categorynode.all.collect {|c| [c.title, c.title] } %>
+		</div>
+		<div class="field">
+			<%= f.label "Price:" %>
+			<%= f.text_field :price %>
+		</div>
+		<div class="field">
+			<!--[form:entry]-->
+			<p>
+				<label for="product_image">Image</label>
+				<%= file_column_field "product", "image" %>
+			</p>
+			<!--[eoform:entry]-->
+		</div>
+
+		<div class="actions">
+			<%= f.submit %>
+		</div>
+		<% end %>
+	</div>
 </fieldset>
