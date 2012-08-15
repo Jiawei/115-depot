@@ -14,20 +14,32 @@ class ProductsController < ApplicationController
   # GET /products/1.xml
   def show
     @product = Product.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @product }
+    
+    if @product.seller_id != session[:user_id] && User.find(session[:user_id]).usertype != "admin"
+      redirect_to store_url, :notice => "Permission denied"
+    else
+      respond_to do |format|
+        format.html # show.html.erb
+        format.xml  { render :xml => @product }
+      end
     end
   end
 
   # GET /products/new
   # GET /products/new.xml
   def new
-    @product = Product.new
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @product }
+    if session[:user_id]  
+      if User.find(session[:user_id]).usertype != "seller" && User.find(session[:user_id]).usertype != "admin"
+        redirect_to store_url, :notice => "Permission denied"
+      else 
+        @product = Product.new
+        respond_to do |format|
+          format.html # new.html.erb
+          format.xml  { render :xml => @product }
+        end
+      end
+    else
+      redirect_to store_url, :notice => "Permission denied"
     end
   end
 
@@ -35,6 +47,9 @@ class ProductsController < ApplicationController
   def edit
     @product = Product.find(params[:id])
     @categories = Categorynode.all.collect {|c| [c.title, c.title] }
+    if @product.seller_id != session[:user_id] && User.find(session[:user_id]).usertype != "admin"
+      redirect_to store_url, :notice => "Permission denied"
+    end
   end
 
   # POST /products
@@ -58,14 +73,17 @@ class ProductsController < ApplicationController
   # PUT /products/1.xml
   def update
     @product = Product.find(params[:id])
-
-    respond_to do |format|
-      if @product.update_attributes(params[:product])
-        format.html { redirect_to(@product, :notice => 'Product was successfully updated.') }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @product.errors, :status => :unprocessable_entity }
+    if @product.seller_id != session[:user_id] && User.find(session[:user_id]).usertype != "admin"
+      redirect_to store_url, :notice => "Permission denied"
+    else
+      respond_to do |format|
+        if @product.update_attributes(params[:product])
+          format.html { redirect_to(@product, :notice => 'Product was successfully updated.') }
+          format.xml  { head :ok }
+        else
+          format.html { render :action => "edit" }
+          format.xml  { render :xml => @product.errors, :status => :unprocessable_entity }
+        end
       end
     end
   end

@@ -229,11 +229,11 @@ body #combox {
 }
 
 
-#store .entry h3 {
+#store .entry a {
   margin-top: 0;
   margin-bottom: 2px;
   padding-bottom: 2px;
-  color: #227;
+  color: green;
   font-size: 14pt;
 }
 
