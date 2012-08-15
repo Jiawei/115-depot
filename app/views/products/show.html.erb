@@ -25,6 +25,10 @@
   <%= @product.price %>
 </p>
 
+<p>
+  <b>Seller:</b>
+  <%= User.find(@product.seller_id).name %>
+</p>
 
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>
