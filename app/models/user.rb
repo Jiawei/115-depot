@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
 	has_one :carts
 	USER_TYPES = ["customer", "seller"];
   validates :name, :presence => true, :uniqueness => true
- 
+  validates_format_of :email, :with => %r/\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/
   validates :password, :confirmation => true
   attr_accessor :password_confirmation
   attr_reader   :password
