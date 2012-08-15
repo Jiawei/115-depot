@@ -16,7 +16,7 @@
 	<legend>
 		Enter User Details
 	</legend>
-	<div>
+	<div class="field">
 		<%= f.label :name %>:
 		<%= f.text_field :name, :size => 40 %>
 	</div>
@@ -27,19 +27,19 @@
       :promt => 'usertype'%>
 	</div>
 	<%end%>
-	<div>
+	<div class="field">
 		<%= f.label :password, 'Password' %>:
 		<%= f.password_field :password, :size => 40 %>
 	</div>
-	<div>
+	<div class="field">
 		<%= f.label :password_confirmation, 'Confirm' %>:
 		<%= f.password_field :password_confirmation, :size => 40 %>
 	</div>
-	<div>
+	<div class="field">
 		<%= f.label :address, 'Address'%>:
 		<%= f.text_area :address, :rows => 3, :cols => 40 %>
 	</div>
-	<div>
+	<div class="field">
 		<%= f.label :email, 'Eamil' %>:
 		<%= f.text_field :email, :size => 40 %>
 	</div>
