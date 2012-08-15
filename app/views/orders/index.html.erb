@@ -1,5 +1,6 @@
 <div id="orders">
   <h2>Your Orders</h2>
+  <% if @orders.where(:seller_id => session[:user_id]).size != 0 || @orders.where(:customer_id => session[:user_id]).size != 0 %>
   <div class="list">
   		<b style = "margin-left: 150px; margin-right: 150px;"> Book </b>
   		<b style = "margin-left: 35px; margin-right: 25px;"> Price </b>
@@ -8,6 +9,9 @@
   		<b style = "margin-right: 100px;"> State </b>
   		<b style = "margin-right: 10px;"> Do </b>
   </div>
+  <% else %>
+    <h2><%= link_to "You have no order, click here to go shopping now.", store_path %></h2>
+  <% end %>
 
   <div class="orderlist">
   	<% if @orders.where(:seller_id => session[:user_id]).size != 0 %>
