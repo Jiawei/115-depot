@@ -23,6 +23,7 @@
 
 <h1><%= t('.title_html') %></h1>
 <% @products.each do |product| %>
+  <% if product.seller_id != session[:user_id] %>
   <div class="entry" >
     <%= image_tag(product.image_url) %>
     <%= link_to product.title, {:controller => "products", :action => "detail" ,:id => product.id } %>
@@ -35,5 +36,6 @@
         :remote => true, :class => "btn_buy", :onclick => "addToCart("+session[:user_id].to_s+")" %>
     </div>
   </div>
+  <% end %>
 <% end %>
 

@@ -11,7 +11,7 @@
 
   <div class="orderlist">
     <% @orders.each do |order| %>
-	  <% if order.seller_id == session[:user_id] || order.customer_id == session[:user_id] %>
+	  <% if order.seller_id == session[:user_id] %>
 	    <div class="each_order">
 	      <div class="up">
 	        <span> Order id: <%= order.id %> </span> 
@@ -21,6 +21,7 @@
 	          <%= button_to 'deliver goods', {:controller => "orders", :action => "ship", :id => order.id}%>
 		    <% end %>
 		  </div>
+		  
 		  <% LineItem.where(:order_id => order.id).each do |line_item| %>
 		    <div class="each_item">
 		      <%= image_tag(line_item.product.image_url) %>
@@ -37,9 +38,43 @@
 			  </div>
 		    </div>
 		  <% end %>
+		  
 		</div>
-	  <% end %>    
-    <% end %>	
+	  <% end %>  
+    <% end %>
+    
+    <% @orders.each do |order| %>  
+	  <% if order.customer_id == session[:user_id] %>
+	    <div class="each_order">
+	      <div class="up">
+	        <span> Order id: <%= order.id %> </span> 
+	        <span> Create Time: <%= order.created_at %> </span>
+	        <span style = "padding-right: 160px;"><%= link_to 'Show', order %></span>
+		    <% if order.seller_id == session[:user_id] && order.state == "ordered" %>
+	          <%= button_to 'deliver goods', {:controller => "orders", :action => "ship", :id => order.id}%>
+		    <% end %>
+		  </div>
+		  
+		  <% LineItem.where(:order_id => order.id).each do |line_item| %>
+		    <div class="each_item">
+		      <%= image_tag(line_item.product.image_url) %>
+		      <div class="title"> <%= line_item.product.title %> </div>
+			  <div class="price"> <%= line_item.product.price %> </div>
+			  <div class="quentity"> <%= line_item.quantity %> </div>
+			  <div class="total"> <%= number_to_currency(line_item.total_price) %></div>
+			  <div class="state"> <%= order.state %>
+			  	<!--  <%= User.find(Product.find(line_item.product_id).seller_id).name %> --></div>
+			  <div class="button"> 
+			    <% if order.customer_id == session[:user_id] && order.state == "shipped" %>
+			      <%= button_to 'post a comment', {:controller => "comments", :action => "new", :id => line_item.product_id } %> 
+		        <% end %>
+			  </div>
+		    </div>
+		  <% end %>
+		  
+		</div>
+	  <% end %>
+	<% end %>	
   </div>
 </div>			
 			
