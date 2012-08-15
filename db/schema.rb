@@ -35,8 +35,8 @@ ActiveRecord::Schema.define(:version => 20120814071021) do
   create_table "comments", :force => true do |t|
     t.integer  "user_id"
     t.text     "content"
-    t.integer  "grades"
     t.integer  "product_id"
+    t.integer  "grade"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -72,7 +72,6 @@ ActiveRecord::Schema.define(:version => 20120814071021) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "seller_id"
-    t.string   "categorynode_name"
   end
 
   create_table "searches", :force => true do |t|
