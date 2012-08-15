@@ -343,6 +343,7 @@ body #combox {
 #store .line_item .line_item_img img {
   max-height: 70px;
   min-width: 55px;
+  width: 55px;
 }
 
 #store .line_item .line_item_title {
@@ -611,8 +612,11 @@ body #combox {
 
 
 #footer{
+	float: left;
+	clear: both;
 	margin: 0 auto;
 	margin-top: 40px;
+	height: 125px;
 	max-height: 125px;
 	background:url(../../images/footer_rbg.png) left bottom repeat-x;
 	text-align: center;
