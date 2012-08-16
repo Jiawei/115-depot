@@ -4,10 +4,13 @@ class UsersController < ApplicationController
   # GET /users.xml
   def index
     @users = User.order(:name)
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @users }
+    if session[:user_id] == nil || User.find(session[:user_id]).usertype != "admin"
+      redirect_to store_url, :notice => "Permission denied"
+    else
+      respond_to do |format|
+        format.html # index.html.erb
+        format.xml  { render :xml => @users }
+      end
     end
   end
 
@@ -15,10 +18,13 @@ class UsersController < ApplicationController
   # GET /users/1.xml
   def show
     @user = User.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @user }
+    if session[:user_id] == nil || User.find(session[:user_id]).usertype != "admin"
+      redirect_to store_url, :notice => "Permission denied"
+    else
+      respond_to do |format|
+        format.html # show.html.erb
+        format.xml  { render :xml => @user }
+      end
     end
   end
 
@@ -36,6 +42,9 @@ class UsersController < ApplicationController
   # GET /users/1/edit
   def edit
     @user = User.find(params[:id])
+    if session[:user_id] == nil || @user.user_id != session[:user_id] && User.find(session[:user_id]).usertype != "admin"
+      redirect_to store_url, :notice => "Permission denied"
+    end
   end
   
 
@@ -65,18 +74,21 @@ class UsersController < ApplicationController
   # PUT /users/1.xml
   def update
     @user = User.find(params[:id])
-
-    respond_to do |format|
-      if @user.update_attributes(params[:user])
-        if (session[:user_id] && User.find(session[:user_id]).usertype == "admin")
-          format.html { redirect_to(users_url, :notice => "User #{@user.name} was successfully updated.") }
+    if session[:user_id] == nil || @user.user_id != session[:user_id] && User.find(session[:user_id]).usertype != "admin"
+      redirect_to store_url, :notice => "Permission denied"
+    else
+      respond_to do |format|
+        if @user.update_attributes(params[:user])
+          if (session[:user_id] && User.find(session[:user_id]).usertype == "admin")
+            format.html { redirect_to(users_url, :notice => "User #{@user.name} was successfully updated.") }
+          else
+            format.html { redirect_to(store_url, :notice => "User #{@user.name} was successfully updated.") }
+          end
+          format.xml  { head :ok } 
         else
-          format.html { redirect_to(store_url, :notice => "User #{@user.name} was successfully updated.") }
+          format.html { render :action => "edit" }
+          format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
         end
-        format.xml  { head :ok } 
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
       end
     end
   end
