@@ -60,6 +60,8 @@ class ProductsController < ApplicationController
     
     respond_to do |format|
       if @product.save
+        @product.image_url = "/product/image/" + @product.image_relative_path
+        @product.save
         format.html { redirect_to(@product, :notice => 'Product was successfully created.') }
         format.xml  { render :xml => @product, :status => :created, :location => @product }
       else
@@ -78,6 +80,8 @@ class ProductsController < ApplicationController
     else
       respond_to do |format|
         if @product.update_attributes(params[:product])
+           @product.image_url = "/product/image/" + @product.image_relative_path
+           @product.save
           format.html { redirect_to(@product, :notice => 'Product was successfully updated.') }
           format.xml  { head :ok }
         else

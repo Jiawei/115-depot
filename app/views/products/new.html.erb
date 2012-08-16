@@ -1,5 +1,5 @@
 <h2>New product</h2>
 
-<%= render 'form' %>
-
-<%= link_to 'Back', products_path %>
+<% form_tag( { :action => 'create' }, :multipart => true ) do %> 
+     <%= render :partial => 'form' %>
+<% end %>
