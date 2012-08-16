@@ -3,7 +3,7 @@ class Product < ActiveRecord::Base
 	before_destroy :ensure_not_referenced_by_any_line_item
 	belongs_to :users
 	has_many :comments
-	has_many :orders, :through => :line_items
+	has_many :line_items
 	validates :title, :description, :categorynode_name, :presence => true
 	validates :price, :numericality => {:greater_than_or_equal_to => 0.01}
 	validates :title, :uniqueness => true

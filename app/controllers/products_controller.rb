@@ -96,11 +96,16 @@ class ProductsController < ApplicationController
   # DELETE /products/1.xml
   def destroy
     @product = Product.find(params[:id])
-    @product.destroy
-
+    
     respond_to do |format|
-      format.html { redirect_to(products_url) }
-      format.xml  { head :ok }
+      if @product.destroy
+        format.html { redirect_to(products_url) }
+        format.xml  { head :ok }
+      else
+        format.html { render :action => "index" }
+        format.xml  { render :xml => @product.errors, :status => :unprocessable_entity }
+      end
+      
     end
   end
   

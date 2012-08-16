@@ -1,34 +1,48 @@
 <div id="product_list">
-  <h2>Listing products</h2>
+	<% if @products == nil && @product.errors.any? %>
+	<div id="error_explanation">
+		<%= t('errors.template.header', :count=>@product.errors.size,
+		:model=>t('activerecord.models.order')) %>
+		<ul>
+			<% @product.errors.full_messages.each do |msg| %>
+			<li>
+				<%= raw msg %>
+			</li>
+			<% end %>
+		</ul>
+	</div>
+	<% end %>
+	<h2>Listing products</h2>
 
-  <table>
-  <% @products.each do |product| %>
-  <% if session[:user_id] && product.seller_id == session[:user_id] || User.find(session[:user_id]).usertype == "admin"%>
-    <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+	<table>
+		<% Product.all.each do |product| %>
+		<% if session[:user_id] && product.seller_id == session[:user_id] || User.find(session[:user_id]).usertype == "admin"%>
+		<tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
 
-      <td>
-        <%= image_tag(product.image_url, :class => 'list_image') %>
-      </td>
+			<td> <%= image_tag(product.image_url, :class => 'list_image') %> </td>
 
-      <td class="list_description">
-        <dl>
-          <dt><%= product.title %></dt>
-          <dd><%= truncate(strip_tags(product.description),
-                 :length => 80) %></dd>
-        </dl>
-      </td>
+			<td class="list_description">
+			<dl>
+				<dt>
+					<%= product.title %>
+				</dt>
+				<dd>
+					<%= truncate(strip_tags(product.description),
+					:length => 80) %>
+				</dd>
+			</dl></td>
 
-      <td class="list_actions">
-        <%= link_to 'Show', product %><br/>
-        <%= link_to 'Edit', edit_product_path(product) %><br/>
-        <%= link_to 'Destroy', product, 
-                    :confirm => 'Are you sure?',
-                    :method => :delete %>
-      </td>
-    </tr>
-  <% end %>
-  <% end %>
-  </table>
+			<td class="list_actions"> <%= link_to 'Show', product %>
+			<br/>
+			<%= link_to 'Edit', edit_product_path(product) %>
+			<br/>
+			<%= link_to 'Destroy', product,
+			:confirm => 'Are you sure?',
+			:method => :delete %> </td>
+		</tr>
+		<% end %>
+		<% end %>
+	</table>
 </div>
 
 <br />
