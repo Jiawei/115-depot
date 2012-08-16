@@ -42,7 +42,7 @@ class UsersController < ApplicationController
   # GET /users/1/edit
   def edit
     @user = User.find(params[:id])
-    if session[:user_id] == nil || @user.user_id != session[:user_id] && User.find(session[:user_id]).usertype != "admin"
+    if session[:user_id] == nil || @user.id != session[:user_id] && User.find(session[:user_id]).usertype != "admin"
       redirect_to store_url, :notice => "Permission denied"
     end
   end
@@ -74,7 +74,7 @@ class UsersController < ApplicationController
   # PUT /users/1.xml
   def update
     @user = User.find(params[:id])
-    if session[:user_id] == nil || @user.user_id != session[:user_id] && User.find(session[:user_id]).usertype != "admin"
+    if session[:user_id] == nil || @user.id != session[:user_id] && User.find(session[:user_id]).usertype != "admin"
       redirect_to store_url, :notice => "Permission denied"
     else
       respond_to do |format|
